@@ -147,3 +147,4 @@ aio/content/examples/.DS_Store
 
 *.txt
 /.vscode/
+/vacupet_database_postgresql/

@@ -1,0 +1,5 @@
+export enum TaxCodes {
+  INCOME_OTHER = "48e5bf5d-40a8-490e-8fdf-3c9306d18326",
+  DEDUCTION_OTHER = "a5098690-981e-4152-8831-1b0b1e1782cb",
+}
+
