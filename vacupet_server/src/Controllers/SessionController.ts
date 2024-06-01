@@ -1,6 +1,6 @@
-import {UserRepository} from "../Database/Repositories/UserRepository";
+import {UserRepository} from "../Database/Repositories/Person/UserRepository";
 import {DataSource} from "typeorm";
-import {IUser} from "../Models/Database/Interfaces/IUser";
+import {IUser} from "../Models/Database/Interfaces/Person/IUser";
 import {ObjectToInterface} from "../Tools/ExtensionMethods/ObjectToInterface";
 
 export class SessionController {
@@ -10,7 +10,7 @@ export class SessionController {
         this._userRepository = new UserRepository(dataSource);
     }
 
-    public async Login(firebaseID: string): Promise<IUser> {
+    /*public async Login(firebaseID: string): Promise<IUser> {
         let user = await this._userRepository.getUserByFirebase(firebaseID, {
                 UserType: true,
             },
@@ -19,5 +19,5 @@ export class SessionController {
             return ObjectToInterface.ToUser(user);
         }
         return null;
-    }
+    }*/
 }

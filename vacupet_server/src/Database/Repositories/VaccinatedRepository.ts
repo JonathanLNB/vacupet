@@ -1,23 +1,24 @@
 import {DataSource, Repository} from "typeorm"
-import {DeductionFormOption} from "../../../../Models/Database/Entities/TaxCodeForms/Deduction/DeductionFormOption";
+import {Vaccinated} from "../../Models/Database/Entities/Vaccinated";
 
-export class DeductionFormOptionRepository {
-    repository: Repository<DeductionFormOption>;
+export class VaccinatedRepository {
+    repository: Repository<Vaccinated>;
     _dataSource: DataSource;
 
     constructor(dataSource: DataSource) {
         this._dataSource = dataSource;
-        this.repository = this._dataSource.getRepository(DeductionFormOption);
+        this.repository = this._dataSource.getRepository(Vaccinated);
     }
-    public async createUpdateDeductionFormOption(DeductionFormOption: DeductionFormOption): Promise<DeductionFormOption> {
+
+    public async createUpdateVaccinated(Vaccinated: Vaccinated): Promise<Vaccinated> {
         try {
-            return await this.repository.save(DeductionFormOption);
+            return await this.repository.save(Vaccinated);
         } catch (e) {
-            console.error('Error saving a new DeductionFormOption', e)
+            console.error('Error saving a new Vaccinated', e)
         }
     }
 
-    public async deleteDeductionFormOption(id: string, ids?: string[], conditions?: object) {
+    public async deleteVaccinated(id: string, ids?: string[], conditions?: object) {
         try {
             if (conditions) {
                 await this.repository.delete(conditions);
@@ -33,7 +34,7 @@ export class DeductionFormOptionRepository {
         }
     }
 
-    public async getAllDeductionFormOptions(relations?: object): Promise<DeductionFormOption[]> {
+    public async getAllVaccinated(relations?: object): Promise<Vaccinated[]> {
         if (relations) {
             return this.repository.find({relations: relations});
         }

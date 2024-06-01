@@ -18,14 +18,6 @@ export class SettingRepository {
         }
     }
 
-    public async partiallyUpdateSetting(id: string, updates: object, updateOptions?: object) {
-        if (updateOptions) {
-            await this.repository.update(updateOptions, updates);
-            return;
-        }
-        await this.repository.update(id, updates);
-    }
-
     public async deleteSetting(id: string, ids?: string[], conditions?: object) {
         try {
             if (conditions) {

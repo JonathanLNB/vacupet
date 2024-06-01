@@ -1,23 +1,24 @@
 import {DataSource, Repository} from "typeorm"
-import {OtherItemForm} from "../../../../Models/Database/Entities/TaxCodeForms/OtherItem/OtherItemForm";
+import {PetType} from "../../Models/Database/Entities/PetType";
 
-export class OtherItemFormRepository {
-    repository: Repository<OtherItemForm>;
+export class PetTypeRepository {
+    repository: Repository<PetType>;
     _dataSource: DataSource;
 
     constructor(dataSource: DataSource) {
         this._dataSource = dataSource;
-        this.repository = this._dataSource.getRepository(OtherItemForm);
+        this.repository = this._dataSource.getRepository(PetType);
     }
-    public async createUpdateOtherItemForm(OtherItemForm: OtherItemForm): Promise<OtherItemForm> {
+
+    public async createUpdatePetType(PetType: PetType): Promise<PetType> {
         try {
-            return await this.repository.save(OtherItemForm);
+            return await this.repository.save(PetType);
         } catch (e) {
-            console.error('Error saving a new OtherItemForm', e)
+            console.error('Error saving a new PetType', e)
         }
     }
 
-    public async deleteOtherItemForm(id: string, ids?: string[], conditions?: object) {
+    public async deletePetType(id: string, ids?: string[], conditions?: object) {
         try {
             if (conditions) {
                 await this.repository.delete(conditions);
@@ -33,7 +34,7 @@ export class OtherItemFormRepository {
         }
     }
 
-    public async getAllOtherItemForms(relations?: object): Promise<OtherItemForm[]> {
+    public async getAllPetTypes(relations?: object): Promise<PetType[]> {
         if (relations) {
             return this.repository.find({relations: relations});
         }

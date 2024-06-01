@@ -5,7 +5,7 @@ import {Logger} from "logger-colors";
 import {LoggerRequest} from "../Tools/Logger/LoggerRequest";
 import {sendResponse} from "../Tools/Logger/SendResponse";
 import {GenericResponse} from "../Models/Interfaces/GenericResponse";
-import {IUser} from "../Models/Database/Interfaces/IUser";
+import {IUser} from "../Models/Database/Interfaces/Person/IUser";
 import {decrypt} from "../Tools/Utils";
 
 export function GetUsersRoutes(dataSource: DataSource): Router {
@@ -24,7 +24,7 @@ export function GetUsersRoutes(dataSource: DataSource): Router {
     })
     const router = express.Router();
     const userController = new UserController(dataSource);
-
+    /*
     router.post("/", [loggerOptions, async (req: Request, res: Response, next: NextFunction): Promise<void> => {
         let gResponse: GenericResponse;
         try {
@@ -132,6 +132,7 @@ export function GetUsersRoutes(dataSource: DataSource): Router {
             sendResponse(logger, gResponse, res);
         }
     }]);
+     */
     return router;
 }
 

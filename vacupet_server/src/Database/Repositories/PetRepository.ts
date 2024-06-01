@@ -1,23 +1,24 @@
 import {DataSource, Repository} from "typeorm"
-import {IncomeForm} from "../../../../Models/Database/Entities/TaxCodeForms/Income/IncomeForm";
+import {Pet} from "../../Models/Database/Entities/Pet";
 
-export class IncomeFormRepository {
-    repository: Repository<IncomeForm>;
+export class PetRepository {
+    repository: Repository<Pet>;
     _dataSource: DataSource;
 
     constructor(dataSource: DataSource) {
         this._dataSource = dataSource;
-        this.repository = this._dataSource.getRepository(IncomeForm);
+        this.repository = this._dataSource.getRepository(Pet);
     }
-    public async createUpdateIncomeForm(IncomeForm: IncomeForm): Promise<IncomeForm> {
+
+    public async createUpdatePet(Pet: Pet): Promise<Pet> {
         try {
-            return await this.repository.save(IncomeForm);
+            return await this.repository.save(Pet);
         } catch (e) {
-            console.error('Error saving a new IncomeForm', e)
+            console.error('Error saving a new Pet', e)
         }
     }
 
-    public async deleteIncomeForm(id: string, ids?: string[], conditions?: object) {
+    public async deletePet(id: string, ids?: string[], conditions?: object) {
         try {
             if (conditions) {
                 await this.repository.delete(conditions);
@@ -33,7 +34,7 @@ export class IncomeFormRepository {
         }
     }
 
-    public async getAllIncomeForms(relations?: object): Promise<IncomeForm[]> {
+    public async getAllPets(relations?: object): Promise<Pet[]> {
         if (relations) {
             return this.repository.find({relations: relations});
         }

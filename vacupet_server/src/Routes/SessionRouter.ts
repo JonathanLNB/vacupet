@@ -25,7 +25,7 @@ export function GetSessionRoutes(dataSource: DataSource): Router {
     const router = express.Router();
     const userController = new SessionController(dataSource);
 
-    router.post("/login", [loggerOptions, async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    /*router.post("/login", [loggerOptions, async (req: Request, res: Response, next: NextFunction): Promise<void> => {
         let gResponse: GenericResponse;
         try {
             let firebaseId = req.body.uidFirebase;
@@ -56,7 +56,7 @@ export function GetSessionRoutes(dataSource: DataSource): Router {
             sendResponse(logger, gResponse, res);
         }
     }]);
-
+*/
     return router;
 }
 

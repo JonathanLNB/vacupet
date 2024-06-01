@@ -1,8 +1,8 @@
 import {DataSource} from "typeorm";
-import {UserRepository} from "../Database/Repositories/UserRepository";
+import {UserRepository} from "../Database/Repositories/Person/UserRepository";
 import {FirebaseRepository} from "../Database/Repositories/FirebaseRepository";
 import {GenericResponse} from "../Models/Interfaces/GenericResponse";
-import {IUser} from "../Models/Database/Interfaces/IUser";
+import {IUser} from "../Models/Database/Interfaces/Person/IUser";
 import {User} from "../Models/Database/Entities/Person/User";
 import {ObjectToInterface} from "../Tools/ExtensionMethods/ObjectToInterface";
 import {InterfaceToObject} from "../Tools/ExtensionMethods/InterfaceToObject";
@@ -17,7 +17,7 @@ export class UserController {
         this._userRepository = new UserRepository(dataSource);//initialize the repository
         this._firebaseService = new FirebaseRepository();
     }
-
+    /*
     public async createUser(user: User, password: string): Promise<GenericResponse> {
         try {
             let firebaseUser = await this._firebaseService.addUser(ObjectToInterface.ToFirebaseUser(user, password));
@@ -79,5 +79,5 @@ export class UserController {
             console.error("Error while getting all branches users", e);
             throw new Error(e);
         }
-    }
+    }*/
 }

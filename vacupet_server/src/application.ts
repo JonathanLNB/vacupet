@@ -1,4 +1,3 @@
-import 'dotenv/config'
 import express, {Application, Router} from "express";
 import cors from 'cors';
 import basicAuth from 'express-basic-auth';
@@ -7,15 +6,15 @@ import {NotFound, ErrorHandler} from './Middlewares/handler';
 import {GetUnauthorizedResponse, IsAuth} from './Middlewares/sessions';
 import adminFB from "firebase-admin";
 import pkg from "../package.json";
-import fileUpload from "express-fileupload";
+//import fileUpload from "express-fileupload";
 import {Paths} from "./Enums/Paths";
 import {GetSessionRoutes} from "./Routes/SessionRouter";
 import {GetCollectionsRoutes} from "./Routes/CollectionsRouter";
 import {GetUsersRoutes} from "./Routes/UsersRouter";
 import {GetSettingRoutes} from "./Routes/SettingsRoutes";
+import {decrypt, decryptENV, encrypt} from "./Tools/Utils";
 
-const AdminFirebaseFile = require(process.env.FIREBASE_ADMIN_FILE);
-
+const AdminFirebaseFile = require("../config/firebase_admin_vacupet.json");
 
 export class App {
     public app: Application;
@@ -24,13 +23,13 @@ export class App {
     constructor(private port: number, routes: Array<express.Router>, private apiPath: string = '/api', private staticPath: string = "public") {
         this.server();
         this.cors();
-        this.database().then(() => {
-            this.firebase();
+        this.firebase();
+       /* this.database().then(() => {
             this.assets(this.staticPath);
             this.routes();
 
-            this.app.use(basicAuth({
-                users: JSON.parse(process.env.BA_USERPASS),
+            /*this.app.use(basicAuth({
+                users: JSON.parse(decryptENV(process.env.BA_USERPASS)),
                 unauthorizedResponse: GetUnauthorizedResponse
             }));
 
@@ -39,7 +38,7 @@ export class App {
             this.app.use(NotFound);
             this.app.use(ErrorHandler);
             console.log("System intialized");
-        });
+        });*/
 
         this.cors();
 
@@ -50,7 +49,7 @@ export class App {
         this.app = express();
         this.app.use(express.json({limit: '50mb'}));
         this.app.use(express.urlencoded({limit: '50mb', extended: true}));
-        this.app.use(fileUpload({}));
+        //this.app.use(fileUpload({}));
     }
 
     private routes() {
@@ -85,10 +84,14 @@ export class App {
         });
     }
 
-    private firebase() {
+    private async firebase() {
         adminFB.initializeApp({
             credential: adminFB.credential.cert(AdminFirebaseFile)
-        })
+        });
+        const remoteConfig = JSON.parse(JSON.stringify((await adminFB.remoteConfig().getTemplate()).parameters));
+        process.env.ENV_SECRET_KEY = remoteConfig['SECRET_KEY'].defaultValue.value;
+        process.env.ENV_SECRET_IV = remoteConfig['SECRET_IV'].defaultValue.value;
+
     }
 
     private async database(): Promise<void> {

@@ -1,4 +1,4 @@
-import {UploadedFile} from 'express-fileupload';
+//import {UploadedFile} from 'express-fileupload';
 import {Request} from "express";
 import {FileUploaderType} from "../Enums/FileUploaderType";
 import {Paths} from "../Enums/Paths";
@@ -17,7 +17,7 @@ export abstract class FileManager {
         });
     }
 
-    public static async UploadFile(identifier: string, req: Request, uploaderType: FileUploaderType): Promise<string[]> {
+    /*public static async UploadFile(identifier: string, req: Request, uploaderType: FileUploaderType): Promise<string[]> {
         let uploadeFiles: string[];
         if (!req.files || Object.keys(req.files).length === 0)
             return [];
@@ -86,5 +86,5 @@ export abstract class FileManager {
             default:
                 return Paths.DefaultServicePath;
         }
-    }
+    }*/
 }

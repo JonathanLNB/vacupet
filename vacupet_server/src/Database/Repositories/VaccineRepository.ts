@@ -1,23 +1,24 @@
 import {DataSource, Repository} from "typeorm"
-import {DeductionForm} from "../../../../Models/Database/Entities/TaxCodeForms/Deduction/DeductionForm";
+import {Vaccine} from "../../Models/Database/Entities/Vaccine";
 
-export class DeductionFormRepository {
-    repository: Repository<DeductionForm>;
+export class VaccineRepository {
+    repository: Repository<Vaccine>;
     _dataSource: DataSource;
 
     constructor(dataSource: DataSource) {
         this._dataSource = dataSource;
-        this.repository = this._dataSource.getRepository(DeductionForm);
+        this.repository = this._dataSource.getRepository(Vaccine);
     }
-    public async createUpdateDeductionForm(DeductionForm: DeductionForm): Promise<DeductionForm> {
+
+    public async createUpdateVaccine(Vaccine: Vaccine): Promise<Vaccine> {
         try {
-            return await this.repository.save(DeductionForm);
+            return await this.repository.save(Vaccine);
         } catch (e) {
-            console.error('Error saving a new DeductionForm', e)
+            console.error('Error saving a new Vaccine', e)
         }
     }
 
-    public async deleteDeductionForm(id: string, ids?: string[], conditions?: object) {
+    public async deleteVaccine(id: string, ids?: string[], conditions?: object) {
         try {
             if (conditions) {
                 await this.repository.delete(conditions);
@@ -33,7 +34,7 @@ export class DeductionFormRepository {
         }
     }
 
-    public async getAllDeductionForms(relations?: object): Promise<DeductionForm[]> {
+    public async getAllVaccines(relations?: object): Promise<Vaccine[]> {
         if (relations) {
             return this.repository.find({relations: relations});
         }

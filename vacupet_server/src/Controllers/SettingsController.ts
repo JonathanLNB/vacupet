@@ -10,7 +10,7 @@ export class SettingsController {
     constructor(dataSource: DataSource) {
         this._settingsRepository = new SettingRepository(dataSource);
     }
-
+    /*
     public async createSetting(setting: ISetting): Promise<ISetting> {
         try {
             let addSetting = await this._settingsRepository.createUpdateSetting(InterfaceToObject.ToSetting(setting));
@@ -36,5 +36,5 @@ export class SettingsController {
             return parsedSettings;
         }
         return null;
-    }
+    }*/
 }

@@ -1,5 +1,5 @@
 import {DataSource, Repository} from "typeorm"
-import {User} from "../../Models/Database/Entities/Person/User";
+import {User} from "../../../Models/Database/Entities/Person/User";
 
 export class UserRepository {
     repository: Repository<User>;
@@ -32,14 +32,6 @@ export class UserRepository {
         } catch (e) {
             console.error("Something went wrong while deleting the object", e)
         }
-    }
-
-    public async partiallyUpdateUser(id: string, updates: object, updateOptions?: object) {
-        if (updateOptions) {
-            await this.repository.update(updateOptions, updates);
-            return;
-        }
-        await this.repository.update(id, updates);
     }
 
     public async getUserByFirebase(firebaseID: string, relations?: object): Promise<User> {

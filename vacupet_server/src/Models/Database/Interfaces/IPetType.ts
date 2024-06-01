@@ -1,4 +1,4 @@
-export interface IMRelation {
+export interface IPetType {
     Id: string;
     Name: string;
 }

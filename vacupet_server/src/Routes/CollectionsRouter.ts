@@ -23,7 +23,7 @@ export function GetCollectionsRoutes(dataSource: DataSource): Router {
     const router = express.Router();
     const collectionController = new CollectionController(dataSource);
 
-    router.get("/UsersTypes", [loggerOptions, async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    /*router.get("/UsersTypes", [loggerOptions, async (req: Request, res: Response, next: NextFunction): Promise<void> => {
         let gResponse: GenericResponse;
         try {
             let usertypes = await collectionController.getAllUserTypes();
@@ -211,7 +211,7 @@ export function GetCollectionsRoutes(dataSource: DataSource): Router {
             sendResponse(logger, gResponse, res);
         }
     }]);
-
+*/
     return router;
 }
 

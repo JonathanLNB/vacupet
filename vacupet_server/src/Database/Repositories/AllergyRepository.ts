@@ -1,23 +1,24 @@
 import {DataSource, Repository} from "typeorm"
-import {OptionType} from "../../../Models/Database/Entities/TaxCodeForms/OptionType";
+import {Allergy} from "../../Models/Database/Entities/Allergy";
 
-export class OptionTypeRepository {
-    repository: Repository<OptionType>;
+export class AllergyRepository {
+    repository: Repository<Allergy>;
     _dataSource: DataSource;
 
     constructor(dataSource: DataSource) {
         this._dataSource = dataSource;
-        this.repository = this._dataSource.getRepository(OptionType);
+        this.repository = this._dataSource.getRepository(Allergy);
     }
-    public async createUpdateOptionType(OptionType: OptionType): Promise<OptionType> {
+
+    public async createUpdateAllergy(Allergy: Allergy): Promise<Allergy> {
         try {
-            return await this.repository.save(OptionType);
+            return await this.repository.save(Allergy);
         } catch (e) {
-            console.error('Error saving a new OptionType', e)
+            console.error('Error saving a new Allergy', e)
         }
     }
 
-    public async deleteOptionType(id: string, ids?: string[], conditions?: object) {
+    public async deleteAllergy(id: string, ids?: string[], conditions?: object) {
         try {
             if (conditions) {
                 await this.repository.delete(conditions);
@@ -33,7 +34,7 @@ export class OptionTypeRepository {
         }
     }
 
-    public async getAllOptionTypes(relations?: object): Promise<OptionType[]> {
+    public async getAllAllergies(relations?: object): Promise<Allergy[]> {
         if (relations) {
             return this.repository.find({relations: relations});
         }

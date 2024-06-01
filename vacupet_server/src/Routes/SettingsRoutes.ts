@@ -23,7 +23,8 @@ export function GetSettingRoutes(dataSource: DataSource): Router {
     })
     const router = express.Router();
     const settingController = new SettingsController(dataSource);
-    router.post('/', [loggerOptions, async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+
+    /*router.post('/', [loggerOptions, async (req: Request, res: Response, next: NextFunction): Promise<void> => {
         let gResponse: GenericResponse;
         let setting = req.body as ISetting;
         try {
@@ -88,5 +89,6 @@ export function GetSettingRoutes(dataSource: DataSource): Router {
         }
 
     }]);
+     */
     return router;
 }

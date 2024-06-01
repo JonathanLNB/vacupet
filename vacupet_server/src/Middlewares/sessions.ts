@@ -1,6 +1,5 @@
 import jwt from "jwt-simple";
 import moment from "moment";
-import 'dotenv/config'
 import {User} from "../Models/Database/Entities/Person/User";
 import {GenericResponse} from "../Models/Interfaces/GenericResponse";
 import {AuthPayload} from "../Models/Interfaces/AuthPayload";
