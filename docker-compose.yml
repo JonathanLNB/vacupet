@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  vacupet_server:
+    build: ./vacupet_server/
+    depends_on:
+      - vacupet_db_postgresql
+    environment:
+      - PRODUCTION=false
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./vacupet_server/:/usr/src/
+      - /usr/src/node_modules
+    command: bash -c "npm run dev"
+  vacupet_db_postgresql:
+    image: postgres
+    environment:
+      - POSTGRES_USER=admin_vacupet
+      - POSTGRES_PASSWORD=21e99e2d631c330091c8ec5ff00c6403
+      - POSTGRES_DB=vacupet_db
+    volumes:
+       - ./vacupet_database_postgresql:/var/lib/postgresql/data
+    ports:
+      - '5433:5432'
