@@ -7,4 +7,5 @@ export interface IUser extends IPerson {
     UpdatedAt: Date;
     CreatedAt: Date;
     UserType: IUserType;
+    Owner?: IUser;
 }

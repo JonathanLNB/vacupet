@@ -1,6 +1,6 @@
 import {DataSource} from "typeorm";
 import express, {NextFunction, Request, Response, Router} from "express";
-import {UserController} from "../Controllers/UserController";
+import {UserController} from "../Controllers/Person/UserController";
 import {Logger} from "logger-colors";
 import {LoggerRequest} from "../Tools/Logger/LoggerRequest";
 import {sendResponse} from "../Tools/Logger/SendResponse";

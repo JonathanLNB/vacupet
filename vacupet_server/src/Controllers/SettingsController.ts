@@ -3,38 +3,39 @@ import {ObjectToInterface} from "../Tools/ExtensionMethods/ObjectToInterface";
 import {ISetting} from "../Models/Database/Interfaces/ISetting";
 import {SettingRepository} from "../Database/Repositories/SettingRepository";
 import {InterfaceToObject} from "../Tools/ExtensionMethods/InterfaceToObject";
+import {Logger} from "logger-colors";
 
 export class SettingsController {
+    private logger: Logger;
     private _settingsRepository: SettingRepository;
 
-    constructor(dataSource: DataSource) {
+    constructor(logger: Logger, dataSource: DataSource) {
+        this.logger = logger;
         this._settingsRepository = new SettingRepository(dataSource);
     }
-    /*
-    public async createSetting(setting: ISetting): Promise<ISetting> {
+
+    public async createUpdateSetting(setting: ISetting): Promise<ISetting> {
         try {
             let addSetting = await this._settingsRepository.createUpdateSetting(InterfaceToObject.ToSetting(setting));
             return addSetting;
         } catch (e) {
+            this.logger.error("An error occurred while adding a new setting", e);
             throw e;
         }
 
-    }
-
-    public async updateSetting(setting: ISetting) {
-        try {
-            await this._settingsRepository.partiallyUpdateSetting(setting.Id, InterfaceToObject.ToSetting(setting));
-        } catch (e) {
-            throw e;
-        }
     }
 
     public async getAllSettings(): Promise<ISetting[]> {
         let settings = await this._settingsRepository.getAllSettings();
-        if (settings) {
-            let parsedSettings = settings.map(setting => ObjectToInterface.ToSetting(setting));
-            return parsedSettings;
+        try {
+            if (settings) {
+                let parsedSettings = settings.map(setting => ObjectToInterface.ToSetting(setting));
+                return parsedSettings;
+            }
+            return null;
+        } catch (e) {
+            this.logger.error("Error while getting all settings", e);
+            throw new Error(e);
         }
-        return null;
-    }*/
+    }
 }

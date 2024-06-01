@@ -7,6 +7,7 @@ import {
 } from "typeorm"
 import {UserType} from "../UserType";
 import {Person} from "./Person";
+import {Owner} from "./Owner";
 
 @Entity()
 export class User extends Person {
@@ -21,4 +22,5 @@ export class User extends Person {
     @ManyToOne(() => UserType)
     @JoinColumn()
     UserType: UserType
+    Owner?: Owner;
 }
