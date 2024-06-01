@@ -1,8 +1,8 @@
-import {User} from "../Database/Entities/Person/User";
+import {IUser} from "../Database/Interfaces/Person/IUser";
 
 export interface AuthPayload {
     iat: number;
-    user: User;
+    user: IUser;
     exp: number;
 }
 

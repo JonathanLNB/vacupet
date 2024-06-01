@@ -1,7 +1,6 @@
 import express, {Application, Router} from "express";
 import cors from 'cors';
 import basicAuth from 'express-basic-auth';
-import AppDataSource from "./Database";
 import {NotFound, ErrorHandler} from './Middlewares/handler';
 import {GetUnauthorizedResponse, IsAuth} from './Middlewares/sessions';
 import adminFB from "firebase-admin";
@@ -12,37 +11,46 @@ import {GetSessionRoutes} from "./Routes/SessionRouter";
 import {GetCollectionsRoutes} from "./Routes/CollectionsRouter";
 import {GetUsersRoutes} from "./Routes/UsersRouter";
 import {GetSettingRoutes} from "./Routes/SettingsRoutes";
-import {decrypt, decryptENV, encrypt} from "./Tools/Utils";
+import {decryptENV} from "./Tools/Utils";
+import {DataSource, DataSourceOptions} from "typeorm";
+import {Person} from "./Models/Database/Entities/Person/Person";
+import {Setting} from "./Models/Database/Entities/Setting";
+import {User} from "./Models/Database/Entities/Person/User";
+import {UserType} from "./Models/Database/Entities/UserType";
+import {Allergy} from "./Models/Database/Entities/Allergy";
+import {Pet} from "./Models/Database/Entities/Pet";
+import {Owner} from "./Models/Database/Entities/Person/Owner";
+import {PetType} from "./Models/Database/Entities/PetType";
+import {Vaccine} from "./Models/Database/Entities/Vaccine";
+import {Vaccinated} from "./Models/Database/Entities/Vaccinated";
 
-const AdminFirebaseFile = require("../config/firebase_admin_vacupet.json");
+const AdminFirebaseFile = require(process.env.FIREBASE_ADMIN_FILE);
 
 export class App {
     public app: Application;
     private router: Router;
+    private AppDataSource: DataSource;
 
     constructor(private port: number, routes: Array<express.Router>, private apiPath: string = '/api', private staticPath: string = "public") {
         this.server();
         this.cors();
-        this.firebase();
-       /* this.database().then(() => {
-            this.assets(this.staticPath);
-            this.routes();
+        this.firebase().then(() => {
+            this.database().then(() => {
+                this.assets(this.staticPath);
+                this.routes();
 
-            /*this.app.use(basicAuth({
-                users: JSON.parse(decryptENV(process.env.BA_USERPASS)),
-                unauthorizedResponse: GetUnauthorizedResponse
-            }));
+                this.app.use(basicAuth({
+                    users: JSON.parse(decryptENV(process.env.BA_USERPASS)),
+                    unauthorizedResponse: GetUnauthorizedResponse
+                }));
 
-            this.app.use('/api/session', GetSessionRoutes(AppDataSource));
+                this.app.use('/api/session', GetSessionRoutes(this.AppDataSource));
 
-            this.app.use(NotFound);
-            this.app.use(ErrorHandler);
-            console.log("System intialized");
-        });*/
-
-        this.cors();
-
-
+                this.app.use(NotFound);
+                this.app.use(ErrorHandler);
+                console.log("System intialized");
+            });
+        });
     }
 
     private server() {
@@ -53,9 +61,9 @@ export class App {
     }
 
     private routes() {
-        this.app.use("/api/collection", IsAuth, GetCollectionsRoutes(AppDataSource));
-        this.app.use("/api/user", IsAuth, GetUsersRoutes(AppDataSource));
-        this.app.use("/api/setting", IsAuth, GetSettingRoutes(AppDataSource));
+        this.app.use("/api/collection", IsAuth, GetCollectionsRoutes(this.AppDataSource));
+        this.app.use("/api/user", IsAuth, GetUsersRoutes(this.AppDataSource));
+        this.app.use("/api/setting", IsAuth, GetSettingRoutes(this.AppDataSource));
     }
 
 
@@ -91,12 +99,24 @@ export class App {
         const remoteConfig = JSON.parse(JSON.stringify((await adminFB.remoteConfig().getTemplate()).parameters));
         process.env.ENV_SECRET_KEY = remoteConfig['SECRET_KEY'].defaultValue.value;
         process.env.ENV_SECRET_IV = remoteConfig['SECRET_IV'].defaultValue.value;
-
     }
 
     private async database(): Promise<void> {
         try {
-            await AppDataSource.initialize();
+            const DataSourceOptions: DataSourceOptions = {
+                type: "postgres",
+                host: decryptENV(process.env.DATABASE_HOST),
+                port: Number.parseInt(decryptENV(process.env.DATABASE_PORT)),
+                username: decryptENV(process.env.DATABASE_USER),
+                password: decryptENV(process.env.DATABASE_PASSWORD),
+                database: decryptENV(process.env.DATABASE_DB),
+                synchronize: true,
+                logging: false,
+                entities: [Person, Setting, User, UserType, Allergy, Pet, Owner, PetType, Vaccine, Vaccinated],
+                migrations: ["src/migrations/**/*.ts"]
+            };
+            this.AppDataSource = new DataSource(DataSourceOptions);
+            await this.AppDataSource.initialize();
         } catch (e) {
             console.error("Error initializing database", e)
         }

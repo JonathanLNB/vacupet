@@ -1,6 +1,6 @@
 import * as CryptoJS from "crypto-js";
 
- function decryptENV(txtToDecrypt: string): string {
+function decryptENV(txtToDecrypt: string): string {
     const key: CryptoJS.lib.WordArray = CryptoJS.enc.Utf8.parse(process.env.ENV_SECRET_KEY)
     const iv: CryptoJS.lib.WordArray = CryptoJS.enc.Utf8.parse(process.env.ENV_SECRET_IV)
     let cipher = CryptoJS.AES.decrypt(txtToDecrypt, key, {

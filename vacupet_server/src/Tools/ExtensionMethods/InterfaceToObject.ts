@@ -93,6 +93,8 @@ export class InterfaceToObject {
             pet.Id = iPet.Id;
         pet.Name = iPet.Name;
         pet.DateOfBirth = iPet.DateOfBirth;
+        pet.Gender = iPet.Gender;
+        pet.Race = iPet.Race;
         pet.PetType = this.ToPetType(iPet.PetType)
         pet.Owner = this.ToOwner(iPet.Owner);
         iPet.Allergies.forEach(allergy => {

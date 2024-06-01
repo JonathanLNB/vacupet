@@ -6,11 +6,12 @@ import {LoggerRequest} from "../Tools/Logger/LoggerRequest";
 import {sendResponse} from "../Tools/Logger/SendResponse";
 import {GenericResponse} from "../Models/Interfaces/GenericResponse";
 import {IUser} from "../Models/Database/Interfaces/Person/IUser";
-import {decrypt} from "../Tools/Utils";
+import {decrypt, decryptENV} from "../Tools/Utils";
+import {User} from "../Models/Database/Entities/Person/User";
 
 export function GetUsersRoutes(dataSource: DataSource): Router {
     const loggerCfg = {
-        ...JSON.parse(process.env.LOGGER),
+        ...JSON.parse(decryptENV(process.env.LOGGER)),
         operationId: '/user'
     }
 
@@ -23,14 +24,14 @@ export function GetUsersRoutes(dataSource: DataSource): Router {
         }
     })
     const router = express.Router();
-    const userController = new UserController(dataSource);
-    /*
+    const userController = new UserController(logger, dataSource);
+
     router.post("/", [loggerOptions, async (req: Request, res: Response, next: NextFunction): Promise<void> => {
         let gResponse: GenericResponse;
         try {
             const password = decrypt(req.body.Password);
             delete req.body.Password;
-            let user = req.body as IUser;
+            let user: User = req.body as User;
             let userResponse = await userController.createUser(user, password);
             if (userResponse.Success) {
                 let newUser = userResponse.Response as IUser;
@@ -81,7 +82,7 @@ export function GetUsersRoutes(dataSource: DataSource): Router {
         try {
             const password = req.body.Password;
             delete req.body.Password;
-            let user = req.body as IUser;
+            let user = req.body as User;
             let userResponse = await userController.updateUser(user, password);
             if (userResponse.Success) {
                 let newUser = userResponse.Response as IUser;
@@ -132,7 +133,7 @@ export function GetUsersRoutes(dataSource: DataSource): Router {
             sendResponse(logger, gResponse, res);
         }
     }]);
-     */
+
     return router;
 }
 

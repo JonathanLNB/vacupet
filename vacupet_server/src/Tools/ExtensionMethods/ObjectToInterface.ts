@@ -109,6 +109,8 @@ export class ObjectToInterface {
             Id: pet.Id,
             Name: pet.Name,
             DateOfBirth: pet.DateOfBirth,
+            Gender: pet.Gender,
+            Race: pet.Race,
             PetType: pet.PetType ? this.ToPetType(pet.PetType) : null,
             Owner: pet.Owner ? this.ToOwner(pet.Owner) : null,
         };

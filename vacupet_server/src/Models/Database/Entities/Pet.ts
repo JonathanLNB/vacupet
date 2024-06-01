@@ -12,6 +12,10 @@ export class Pet {
     Name: string
     @Column()
     DateOfBirth: Date
+    @Column()
+    Gender: boolean
+    @Column()
+    Race: string
     @ManyToOne(() => PetType)
     @JoinColumn()
     PetType: PetType

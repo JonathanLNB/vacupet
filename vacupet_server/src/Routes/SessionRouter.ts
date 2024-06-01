@@ -6,10 +6,11 @@ import {LoggerRequest} from "../Tools/Logger/LoggerRequest";
 import {sendResponse} from "../Tools/Logger/SendResponse";
 import {GenericResponse} from "../Models/Interfaces/GenericResponse";
 import {CreateToken} from "../Middlewares/sessions";
+import {decryptENV} from "../Tools/Utils";
 
 export function GetSessionRoutes(dataSource: DataSource): Router {
     const loggerCfg = {
-        ...JSON.parse(process.env.LOGGER),
+        ...JSON.parse(decryptENV(process.env.LOGGER)),
         operationId: '/session'
     }
 
@@ -23,9 +24,9 @@ export function GetSessionRoutes(dataSource: DataSource): Router {
     })
 
     const router = express.Router();
-    const userController = new SessionController(dataSource);
+    const userController = new SessionController(logger, dataSource);
 
-    /*router.post("/login", [loggerOptions, async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    router.post("/login", [loggerOptions, async (req: Request, res: Response, next: NextFunction): Promise<void> => {
         let gResponse: GenericResponse;
         try {
             let firebaseId = req.body.uidFirebase;
@@ -56,7 +57,6 @@ export function GetSessionRoutes(dataSource: DataSource): Router {
             sendResponse(logger, gResponse, res);
         }
     }]);
-*/
     return router;
 }
 

@@ -7,6 +7,8 @@ export interface IPet {
     Id: string;
     Name: string;
     DateOfBirth: Date;
+    Gender: boolean;
+    Race: string;
     PetType: IPetType;
     Owner: IOwner;
     Allergies?: IAllergy[];

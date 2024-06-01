@@ -1,15 +1,13 @@
 FROM node:21
 
-RUN mkdir /usr/src/app
-COPY ["package.json", "/usr/src/app"]
+COPY ["package.json", "/usr/src"]
 
-
-WORKDIR /usr/src/app
+WORKDIR /usr/src
 
 RUN npm install
 RUN npm install -g ts-node
 
-COPY [".", "/usr/src/app"]
+COPY [".", "/usr/src"]
 
 EXPOSE 3000
 

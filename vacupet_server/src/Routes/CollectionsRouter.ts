@@ -5,10 +5,11 @@ import {LoggerRequest} from "../Tools/Logger/LoggerRequest";
 import {sendResponse} from "../Tools/Logger/SendResponse";
 import {GenericResponse} from "../Models/Interfaces/GenericResponse";
 import {CollectionController} from "../Controllers/CollectionController";
+import {decryptENV} from "../Tools/Utils";
 
 export function GetCollectionsRoutes(dataSource: DataSource): Router {
     const loggerCfg = {
-        ...JSON.parse(process.env.LOGGER),
+        ...JSON.parse(decryptENV(process.env.LOGGER)),
         operationId: '/collection'
     }
 
@@ -21,9 +22,9 @@ export function GetCollectionsRoutes(dataSource: DataSource): Router {
         }
     })
     const router = express.Router();
-    const collectionController = new CollectionController(dataSource);
+    const collectionController = new CollectionController(logger, dataSource);
 
-    /*router.get("/UsersTypes", [loggerOptions, async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    router.get("/UsersTypes", [loggerOptions, async (req: Request, res: Response, next: NextFunction): Promise<void> => {
         let gResponse: GenericResponse;
         try {
             let usertypes = await collectionController.getAllUserTypes();
@@ -44,10 +45,10 @@ export function GetCollectionsRoutes(dataSource: DataSource): Router {
         }
     }]);
 
-    router.get("/States", [loggerOptions, async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    router.get("/PetTypes", [loggerOptions, async (req: Request, res: Response, next: NextFunction): Promise<void> => {
         let gResponse: GenericResponse;
         try {
-            let states = await collectionController.getAllStates();
+            let states = await collectionController.getAllPetTypes();
             gResponse = {
                 Success: true,
                 Message: "Success getting data",
@@ -65,10 +66,10 @@ export function GetCollectionsRoutes(dataSource: DataSource): Router {
         }
     }]);
 
-    router.get("/OptionTypes", [loggerOptions, async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    router.get("/Vaccines", [loggerOptions, async (req: Request, res: Response, next: NextFunction): Promise<void> => {
         let gResponse: GenericResponse;
         try {
-            let optiontypes = await collectionController.getAllOptionTypes();
+            let optiontypes = await collectionController.getAllVaccines();
             gResponse = {
                 Success: true,
                 Message: "Success getting data",
@@ -85,133 +86,6 @@ export function GetCollectionsRoutes(dataSource: DataSource): Router {
             sendResponse(logger, gResponse, res);
         }
     }]);
-
-    router.get("/QuestionTypes", [loggerOptions, async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-        let gResponse: GenericResponse;
-        try {
-            let questiontypes = await collectionController.getAllQuestionTypes();
-            gResponse = {
-                Success: true,
-                Message: "Success getting data",
-                Response: questiontypes
-            }
-            res.status(200);
-        } catch (e) {
-            gResponse = {
-                Success: false,
-                Message: "Error getting all question types"
-            }
-            res.status(500);
-        } finally {
-            sendResponse(logger, gResponse, res);
-        }
-    }]);
-
-    router.get("/TaxCodeType", [loggerOptions, async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-        let gResponse: GenericResponse;
-        try {
-            let taxcodetypes = await collectionController.getAllTaxCodeType();
-            gResponse = {
-                Success: true,
-                Message: "Success getting data",
-                Response: taxcodetypes
-            }
-            res.status(200);
-        } catch (e) {
-            gResponse = {
-                Success: false,
-                Message: "Error getting all taxcode types"
-            }
-            res.status(500);
-        } finally {
-            sendResponse(logger, gResponse, res);
-        }
-    }]);
-
-    router.get("/Relation", [loggerOptions, async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-        let gResponse: GenericResponse;
-        try {
-            let questionOptions = await collectionController.getAllRelation();
-            gResponse = {
-                Success: true,
-                Message: "Success getting data",
-                Response: questionOptions
-            }
-            res.status(200);
-        } catch (e) {
-            gResponse = {
-                Success: false,
-                Message: "Error getting all question options"
-            }
-            res.status(500);
-        } finally {
-            sendResponse(logger, gResponse, res);
-        }
-    }]);
-
-    router.get("/BankMethodType", [loggerOptions, async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-        let gResponse: GenericResponse;
-        try {
-            let bankMethodTypes = await collectionController.getAllBankMethodType();
-            gResponse = {
-                Success: true,
-                Message: "Success getting data",
-                Response: bankMethodTypes
-            }
-            res.status(200);
-        } catch (e) {
-            gResponse = {
-                Success: false,
-                Message: "Error getting all question options"
-            }
-            res.status(500);
-        } finally {
-            sendResponse(logger, gResponse, res);
-        }
-    }]);
-
-    router.get("/AccountType", [loggerOptions, async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-        let gResponse: GenericResponse;
-        try {
-            let accountTypes = await collectionController.getAllAccountTypes();
-            gResponse = {
-                Success: true,
-                Message: "Success getting data",
-                Response: accountTypes
-            }
-            res.status(200);
-        } catch (e) {
-            gResponse = {
-                Success: false,
-                Message: "Error getting all question options"
-            }
-            res.status(500);
-        } finally {
-            sendResponse(logger, gResponse, res);
-        }
-    }]);
-
-    router.get("/TransferMethod", [loggerOptions, async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-        let gResponse: GenericResponse;
-        try {
-            let transferMethods = await collectionController.getAllTranferMethods();
-            gResponse = {
-                Success: true,
-                Message: "Success getting data",
-                Response: transferMethods
-            }
-            res.status(200);
-        } catch (e) {
-            gResponse = {
-                Success: false,
-                Message: "Error getting all question options"
-            }
-            res.status(500);
-        } finally {
-            sendResponse(logger, gResponse, res);
-        }
-    }]);
-*/
     return router;
 }
 

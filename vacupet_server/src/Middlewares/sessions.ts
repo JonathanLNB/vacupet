@@ -3,6 +3,8 @@ import moment from "moment";
 import {User} from "../Models/Database/Entities/Person/User";
 import {GenericResponse} from "../Models/Interfaces/GenericResponse";
 import {AuthPayload} from "../Models/Interfaces/AuthPayload";
+import {IUser} from "../Models/Database/Interfaces/Person/IUser";
+import {decryptENV} from "../Tools/Utils";
 
 export function GetUnauthorizedResponse(req, res, next): GenericResponse {
     return req.auth ? {
@@ -29,7 +31,7 @@ export function IsAuth(req, res, next) {
 function DecodeToken(token: string) {
     return new Promise((resolve, reject) => {
         try {
-            const payload = jwt.decode(token, process.env.JWT_SECRET_TOKEN, false);
+            const payload = jwt.decode(token, decryptENV(process.env.JWT_SECRET_TOKEN), false);
             resolve(payload);
         } catch (e) {
             reject({
@@ -40,13 +42,13 @@ function DecodeToken(token: string) {
     });
 }
 
-export function CreateToken(user: User): string {
+export function CreateToken(user: IUser): string {
     const payload: AuthPayload = {
         iat: moment().unix(),
         user: user,
         exp: moment().add(12, 'hours').unix()
     };
-    return jwt.encode(payload, process.env.JWT_SECRET_TOKEN);
+    return jwt.encode(payload, decryptENV(process.env.JWT_SECRET_TOKEN));
 }
 
 module.exports = {GetUnauthorizedResponse, IsAuth, CreateToken}
