@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'GoogleSans';
+  src: url('./assets/fonts/GoogleSans/GoogleSans-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'GoogleSansItalic';
+  src: url('./assets/fonts/GoogleSans/GoogleSans-Italic.ttf');
+}
+
+@font-face {
+  font-family: 'GoogleSansBold';
+  src: url('./assets/fonts/GoogleSans/GoogleSans-Bold.ttf');
+}
+
+html, body { height: 100%; }
+body { margin: 0;font-family: GoogleSans, GoogleSansItalic, GoogleSansBold, serif !important; }
