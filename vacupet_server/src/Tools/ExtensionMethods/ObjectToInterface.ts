@@ -71,6 +71,7 @@ export class ObjectToInterface {
             UpdatedAt: user.UpdatedAt,
             DateOfBirth: user.DateOfBirth,
             FirebaseId: user.FirebaseId,
+            Owner: user.Owner ? this.ToOwner(user.Owner) : null,
             UserType: user.UserType ? this.ToUserType(user.UserType) : null,
         };
     }
@@ -129,6 +130,8 @@ export class ObjectToInterface {
         const vaccinatedO: IVaccinated = {
             Id: vaccinated.Id,
             ApplicationDate: vaccinated.ApplicationDate,
+            NextApplicationDate: vaccinated.NextApplicationDate,
+            Weight: vaccinated.Weight,
             Vaccine: vaccinated.Vaccine ? this.ToVaccine(vaccinated.Vaccine) : null
         };
         return vaccinatedO;

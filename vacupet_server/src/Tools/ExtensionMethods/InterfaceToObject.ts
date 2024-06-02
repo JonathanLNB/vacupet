@@ -63,6 +63,8 @@ export class InterfaceToObject {
         owner.PhoneNumber = iUser.PhoneNumber;
         owner.DateOfBirth = iUser.DateOfBirth;
         owner.FirebaseId = iUser.FirebaseId;
+        if (iUser.Owner)
+            owner.Owner = this.ToOwner(iUser.Owner);
         return owner;
     }
 
@@ -70,7 +72,8 @@ export class InterfaceToObject {
         const owner = new Owner()
         if (iOwner.Id)
             owner.Id = iOwner.Id;
-        owner.User = this.ToUser(iOwner.User);
+        if (iOwner.User)
+            owner.User = this.ToUser(iOwner.User);
         owner.Address = iOwner.Address;
         return owner;
     }
@@ -113,6 +116,8 @@ export class InterfaceToObject {
         if (iVaccinated.Id)
             vaccinated.Id = iVaccinated.Id;
         vaccinated.ApplicationDate = iVaccinated.ApplicationDate;
+        vaccinated.NextApplicationDate = iVaccinated.NextApplicationDate;
+        vaccinated.Weight = iVaccinated.Weight;
         vaccinated.Pet = this.ToPet(iVaccinated.Pet);
         vaccinated.Vaccine = this.ToVaccine(iVaccinated.Vaccine);
         return vaccinated;

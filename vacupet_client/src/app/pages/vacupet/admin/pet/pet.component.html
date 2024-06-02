@@ -1,0 +1,3 @@
+<h1>Mascotas</h1>
+<app-data-table [canCreate]="true" [data]="data" [tableHeaders]="getTableHeaders(tableHeaders)" (element)="getPet($event)" (deleteF)="deletePet($event)"
+                (newEdit)="createUpdatePet($event)"></app-data-table>

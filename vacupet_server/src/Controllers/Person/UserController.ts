@@ -25,7 +25,7 @@ export class UserController {
 
     public async createUser(user: User, password: string): Promise<GenericResponse> {
         try {
-            let firebaseUser = await this._firebaseService.addUser(ObjectToInterface.ToFirebaseUser(user, password));
+            let firebaseUser = await this._firebaseService.addUser(ObjectToInterface.ToFirebaseUser(user, password), user.UserType.Id === UserTypes.OWNER);
             user.FirebaseId = firebaseUser.Uid;
             if (firebaseUser.Success) {
                 let newUser = await this._userRepository.createUpdateUser(user);
@@ -71,6 +71,8 @@ export class UserController {
 
     public async deleteUser(UserId: string): Promise<GenericResponse> {
         try {
+            const user = await this._userRepository.getUserById(UserId);
+            await this._firebaseService.deleteUser(user.FirebaseId);
             await this._userRepository.deleteUser(UserId);
             return {Success: true};
         } catch (e) {

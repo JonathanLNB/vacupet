@@ -1,4 +1,3 @@
-import {IPerson} from "./IPerson";
 import {IPet} from "../IPet";
 import {IUser} from "./IUser";
 

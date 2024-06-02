@@ -1,0 +1,27 @@
+h1 {
+  font-family: GoogleSansBold, sans-serif !important;
+  color: #626161;
+}
+
+h3 {
+  font-family: GoogleSans, sans-serif !important;
+  color: #626161;
+  margin: 0px;
+}
+
+span {
+  font-family: GoogleSansBold, sans-serif !important;
+  color: #000000;
+}
+
+.main-div{
+  height: 100vh;
+  display: contents;
+  justify-content: center;
+  align-items: center;
+}
+
+.mat-mdc-dialog-actions {
+  justify-content: end;
+  padding-right: 25px;
+}

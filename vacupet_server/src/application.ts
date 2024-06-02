@@ -7,11 +7,14 @@ import adminFB from "firebase-admin";
 import pkg from "../package.json";
 //import fileUpload from "express-fileupload";
 import {Paths} from "./Enums/Paths";
-import {GetSessionRoutes} from "./Routes/SessionRouter";
-import {GetCollectionsRoutes} from "./Routes/CollectionsRouter";
-import {GetUsersRoutes} from "./Routes/UsersRouter";
-import {GetSettingRoutes} from "./Routes/SettingsRoutes";
-import {decryptENV} from "./Tools/Utils";
+import {GetSessionRoutes} from "./Routes/SessionRoutes";
+import {GetCollectionsRoutes} from "./Routes/CollectionsRoutes";
+import {GetUsersRoutes} from "./Routes/UsersRoutes";
+import {GetSettingsRoutes} from "./Routes/SettingsRoutes";
+import {GetOwnersRoutes} from "./Routes/OwnersRoutes";
+import {GetPetsRoutes} from "./Routes/PetsRoutes";
+import {GetAllergiesRoutes} from "./Routes/AllergiesRoutes";
+import {decryptENV, encryptENV} from "./Tools/Utils";
 import {DataSource, DataSourceOptions} from "typeorm";
 import {Person} from "./Models/Database/Entities/Person/Person";
 import {Setting} from "./Models/Database/Entities/Setting";
@@ -38,7 +41,6 @@ export class App {
             this.database().then(() => {
                 this.assets(this.staticPath);
                 this.routes();
-
                 this.app.use(basicAuth({
                     users: JSON.parse(decryptENV(process.env.BA_USERPASS)),
                     unauthorizedResponse: GetUnauthorizedResponse
@@ -63,7 +65,10 @@ export class App {
     private routes() {
         this.app.use("/api/collection", IsAuth, GetCollectionsRoutes(this.AppDataSource));
         this.app.use("/api/user", IsAuth, GetUsersRoutes(this.AppDataSource));
-        this.app.use("/api/setting", IsAuth, GetSettingRoutes(this.AppDataSource));
+        this.app.use("/api/setting", IsAuth, GetSettingsRoutes(this.AppDataSource));
+        this.app.use("/api/allergy", IsAuth, GetAllergiesRoutes(this.AppDataSource));
+        this.app.use("/api/owner", IsAuth, GetOwnersRoutes(this.AppDataSource));
+        this.app.use("/api/pet", IsAuth, GetPetsRoutes(this.AppDataSource));
     }
 
 

@@ -226,11 +226,11 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mat-primary .mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled) .mdc-list-item__primary-text {
-  color: var(--mdc-theme-primary, #9b755b)
+  color: var(--mdc-theme-primary, #397CC0)
 }
 
 .mat-accent .mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled) .mdc-list-item__primary-text {
-  color: var(--mdc-theme-secondary, #f89843)
+  color: var(--mdc-theme-secondary, #53BAAC)
 }
 
 .mat-warn .mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled) .mdc-list-item__primary-text {
@@ -250,11 +250,11 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mat-primary .mat-pseudo-checkbox-checked.mat-pseudo-checkbox-minimal::after, .mat-primary .mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-minimal::after {
-  color: #9b755b
+  color: #397CC0
 }
 
 .mat-primary .mat-pseudo-checkbox-checked.mat-pseudo-checkbox-full, .mat-primary .mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-full {
-  background: #9b755b
+  background: #397CC0
 }
 
 .mat-primary .mat-pseudo-checkbox-checked.mat-pseudo-checkbox-full::after, .mat-primary .mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-full::after {
@@ -262,11 +262,11 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mat-pseudo-checkbox-checked.mat-pseudo-checkbox-minimal::after, .mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-minimal::after {
-  color: #f89843
+  color: #53BAAC
 }
 
 .mat-pseudo-checkbox-checked.mat-pseudo-checkbox-full, .mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-full {
-  background: #f89843
+  background: #53BAAC
 }
 
 .mat-pseudo-checkbox-checked.mat-pseudo-checkbox-full::after, .mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-full::after {
@@ -274,11 +274,11 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mat-accent .mat-pseudo-checkbox-checked.mat-pseudo-checkbox-minimal::after, .mat-accent .mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-minimal::after {
-  color: #f89843
+  color: #53BAAC
 }
 
 .mat-accent .mat-pseudo-checkbox-checked.mat-pseudo-checkbox-full, .mat-accent .mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-full {
-  background: #f89843
+  background: #53BAAC
 }
 
 .mat-accent .mat-pseudo-checkbox-checked.mat-pseudo-checkbox-full::after, .mat-accent .mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-full::after {
@@ -463,7 +463,7 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mat-mdc-progress-bar {
-  --mdc-linear-progress-active-indicator-color: #9b755b
+  --mdc-linear-progress-active-indicator-color: #397CC0
 }
 
 .mat-mdc-progress-bar .mdc-linear-progress__buffer-dots {
@@ -475,7 +475,7 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mat-mdc-progress-bar.mat-accent {
-  --mdc-linear-progress-active-indicator-color: #f89843
+  --mdc-linear-progress-active-indicator-color: #53BAAC
 }
 
 .mat-mdc-progress-bar.mat-accent .mdc-linear-progress__buffer-dots {
@@ -531,7 +531,7 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mdc-text-field .mdc-text-field__input {
-  caret-color: var(--mdc-theme-primary, #9b755b)
+  caret-color: var(--mdc-theme-primary, #397CC0)
 }
 
 .mdc-text-field:not(.mdc-text-field--disabled) + .mdc-text-field-helper-line .mdc-text-field-helper-text {
@@ -583,7 +583,7 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mdc-text-field--filled .mdc-line-ripple::after {
-  border-bottom-color: var(--mdc-theme-primary, #9b755b)
+  border-bottom-color: var(--mdc-theme-primary, #397CC0)
 }
 
 .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading, .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__notch, .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing {
@@ -595,7 +595,7 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__leading, .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__notch, .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__trailing {
-  border-color: var(--mdc-theme-primary, #9b755b)
+  border-color: var(--mdc-theme-primary, #397CC0)
 }
 
 .mdc-text-field--outlined .mdc-text-field__ripple::before, .mdc-text-field--outlined .mdc-text-field__ripple::after {
@@ -603,7 +603,7 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
-  color: #9b755b
+  color: #397CC0
 }
 
 .mdc-text-field--invalid:not(.mdc-text-field--disabled):hover .mdc-line-ripple::before {
@@ -789,11 +789,11 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mat-mdc-form-field-type-mat-native-select.mat-focused.mat-primary .mat-mdc-form-field-infix::after {
-  color: #9b755b;
+  color: #397CC0;
 }
 
 .mat-mdc-form-field-type-mat-native-select.mat-focused.mat-accent .mat-mdc-form-field-infix::after {
-  color: #f89843;
+  color: #53BAAC;
 }
 
 .mat-mdc-form-field-type-mat-native-select.mat-focused.mat-warn .mat-mdc-form-field-infix::after {
@@ -805,11 +805,11 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mat-mdc-form-field.mat-accent .mdc-text-field__input {
-  caret-color: var(--mdc-theme-secondary, #f89843)
+  caret-color: var(--mdc-theme-secondary, #53BAAC)
 }
 
 .mat-mdc-form-field.mat-accent:not(.mdc-text-field--disabled) .mdc-line-ripple::after {
-  border-bottom-color: var(--mdc-theme-secondary, #f89843)
+  border-bottom-color: var(--mdc-theme-secondary, #53BAAC)
 }
 
 .mat-mdc-form-field.mat-accent .mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
@@ -857,7 +857,7 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mat-mdc-form-field.mat-accent .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__leading, .mat-mdc-form-field.mat-accent .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__notch, .mat-mdc-form-field.mat-accent .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__trailing {
-  border-color: var(--mdc-theme-secondary, #f89843)
+  border-color: var(--mdc-theme-secondary, #53BAAC)
 }
 
 .mat-mdc-form-field.mat-warn .mdc-text-field__input {
@@ -1081,11 +1081,11 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mdc-list-item--selected .mdc-list-item__primary-text, .mdc-list-item--activated .mdc-list-item__primary-text {
-  color: var(--mdc-theme-primary, #9b755b)
+  color: var(--mdc-theme-primary, #397CC0)
 }
 
 .mdc-list-item--selected.mdc-list-item--with-leading-icon .mdc-list-item__start, .mdc-list-item--activated.mdc-list-item--with-leading-icon .mdc-list-item__start {
-  color: var(--mdc-theme-primary, #9b755b)
+  color: var(--mdc-theme-primary, #397CC0)
 }
 
 .mdc-deprecated-list-group__subheader {
@@ -1117,11 +1117,11 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mat-mdc-form-field.mat-focused.mat-primary .mat-mdc-select-arrow {
-  color: #9b755b;
+  color: #397CC0;
 }
 
 .mat-mdc-form-field.mat-focused.mat-accent .mat-mdc-select-arrow {
-  color: #f89843;
+  color: #53BAAC;
 }
 
 .mat-mdc-form-field.mat-focused.mat-warn .mat-mdc-select-arrow {
@@ -1220,11 +1220,11 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mdc-list-item--selected .mdc-list-item__primary-text, .mdc-list-item--activated .mdc-list-item__primary-text {
-  color: var(--mdc-theme-primary, #9b755b)
+  color: var(--mdc-theme-primary, #397CC0)
 }
 
 .mdc-list-item--selected.mdc-list-item--with-leading-icon .mdc-list-item__start, .mdc-list-item--activated.mdc-list-item--with-leading-icon .mdc-list-item__start {
-  color: var(--mdc-theme-primary, #9b755b)
+  color: var(--mdc-theme-primary, #397CC0)
 }
 
 .mdc-deprecated-list-group__subheader {
@@ -1285,8 +1285,8 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mat-mdc-standard-chip.mat-primary.mat-mdc-chip-selected, .mat-mdc-standard-chip.mat-primary.mat-mdc-chip-highlighted {
-  --mdc-chip-elevated-container-color: #9b755b;
-  --mdc-chip-elevated-disabled-container-color: #9b755b;
+  --mdc-chip-elevated-container-color: #397CC0;
+  --mdc-chip-elevated-disabled-container-color: #397CC0;
   --mdc-chip-label-text-color: white;
   --mdc-chip-disabled-label-text-color: white;
   --mdc-chip-with-icon-icon-color: white;
@@ -1297,8 +1297,8 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mat-mdc-standard-chip.mat-accent.mat-mdc-chip-selected, .mat-mdc-standard-chip.mat-accent.mat-mdc-chip-highlighted {
-  --mdc-chip-elevated-container-color: #f89843;
-  --mdc-chip-elevated-disabled-container-color: #f89843;
+  --mdc-chip-elevated-container-color: #53BAAC;
+  --mdc-chip-elevated-disabled-container-color: #53BAAC;
   --mdc-chip-label-text-color: white;
   --mdc-chip-disabled-label-text-color: white;
   --mdc-chip-with-icon-icon-color: white;
@@ -1440,12 +1440,12 @@ textarea.cdk-textarea-autosize-measuring-firefox {
   --mdc-radio-unselected-hover-icon-color: #212121;
   --mdc-radio-unselected-icon-color: rgba(0, 0, 0, 0.54);
   --mdc-radio-unselected-pressed-icon-color: rgba(0, 0, 0, 0.54);
-  --mdc-radio-selected-focus-icon-color: #9b755b;
-  --mdc-radio-selected-hover-icon-color: #9b755b;
-  --mdc-radio-selected-icon-color: #9b755b;
-  --mdc-radio-selected-pressed-icon-color: #9b755b;
+  --mdc-radio-selected-focus-icon-color: #397CC0;
+  --mdc-radio-selected-hover-icon-color: #397CC0;
+  --mdc-radio-selected-icon-color: #397CC0;
+  --mdc-radio-selected-pressed-icon-color: #397CC0;
   --mat-mdc-radio-ripple-color: #000;
-  --mat-mdc-radio-checked-ripple-color: #9b755b
+  --mat-mdc-radio-checked-ripple-color: #397CC0
 }
 
 .mat-mdc-radio-button.mat-primary .mdc-radio--disabled + label {
@@ -1459,12 +1459,12 @@ textarea.cdk-textarea-autosize-measuring-firefox {
   --mdc-radio-unselected-hover-icon-color: #212121;
   --mdc-radio-unselected-icon-color: rgba(0, 0, 0, 0.54);
   --mdc-radio-unselected-pressed-icon-color: rgba(0, 0, 0, 0.54);
-  --mdc-radio-selected-focus-icon-color: #f89843;
-  --mdc-radio-selected-hover-icon-color: #f89843;
-  --mdc-radio-selected-icon-color: #f89843;
-  --mdc-radio-selected-pressed-icon-color: #f89843;
+  --mdc-radio-selected-focus-icon-color: #53BAAC;
+  --mdc-radio-selected-hover-icon-color: #53BAAC;
+  --mdc-radio-selected-icon-color: #53BAAC;
+  --mdc-radio-selected-pressed-icon-color: #53BAAC;
   --mat-mdc-radio-ripple-color: #000;
-  --mat-mdc-radio-checked-ripple-color: #f89843
+  --mat-mdc-radio-checked-ripple-color: #53BAAC
 }
 
 .mat-mdc-radio-button.mat-accent .mdc-radio--disabled + label {
@@ -1532,27 +1532,27 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mat-mdc-slider.mat-primary {
-  --mdc-slider-handle-color: #9b755b;
-  --mdc-slider-focus-handle-color: #9b755b;
-  --mdc-slider-hover-handle-color: #9b755b;
-  --mdc-slider-active-track-color: #9b755b;
-  --mdc-slider-inactive-track-color: #9b755b;
+  --mdc-slider-handle-color: #397CC0;
+  --mdc-slider-focus-handle-color: #397CC0;
+  --mdc-slider-hover-handle-color: #397CC0;
+  --mdc-slider-active-track-color: #397CC0;
+  --mdc-slider-inactive-track-color: #397CC0;
   --mdc-slider-with-tick-marks-active-container-color: #F8F8FF;
-  --mdc-slider-with-tick-marks-inactive-container-color: #9b755b;
-  --mat-mdc-slider-ripple-color: #9b755b;
+  --mdc-slider-with-tick-marks-inactive-container-color: #397CC0;
+  --mat-mdc-slider-ripple-color: #397CC0;
   --mat-mdc-slider-hover-ripple-color: #F898430D;
   --mat-mdc-slider-focus-ripple-color: #F8984333;
 }
 
 .mat-mdc-slider.mat-accent {
-  --mdc-slider-handle-color: #f89843;
-  --mdc-slider-focus-handle-color: #f89843;
-  --mdc-slider-hover-handle-color: #f89843;
-  --mdc-slider-active-track-color: #f89843;
-  --mdc-slider-inactive-track-color: #f89843;
+  --mdc-slider-handle-color: #53BAAC;
+  --mdc-slider-focus-handle-color: #53BAAC;
+  --mdc-slider-hover-handle-color: #53BAAC;
+  --mdc-slider-active-track-color: #53BAAC;
+  --mdc-slider-inactive-track-color: #53BAAC;
   --mdc-slider-with-tick-marks-active-container-color: #F8F8FF;
-  --mdc-slider-with-tick-marks-inactive-container-color: #f89843;
-  --mat-mdc-slider-ripple-color: #f89843;
+  --mdc-slider-with-tick-marks-inactive-container-color: #53BAAC;
+  --mat-mdc-slider-ripple-color: #53BAAC;
   --mat-mdc-slider-hover-ripple-color: rgba(255, 64, 129, 0.05);
   --mat-mdc-slider-focus-ripple-color: rgba(255, 64, 129, 0.2)
 }
@@ -1637,11 +1637,11 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mdc-list-item--selected .mdc-list-item__primary-text, .mdc-list-item--activated .mdc-list-item__primary-text {
-  color: var(--mdc-theme-primary, #9b755b)
+  color: var(--mdc-theme-primary, #397CC0)
 }
 
 .mdc-list-item--selected.mdc-list-item--with-leading-icon .mdc-list-item__start, .mdc-list-item--activated.mdc-list-item--with-leading-icon .mdc-list-item__start {
-  color: var(--mdc-theme-primary, #9b755b)
+  color: var(--mdc-theme-primary, #397CC0)
 }
 
 .mdc-deprecated-list-group__subheader {
@@ -1715,10 +1715,10 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 
 .mat-mdc-list-option .mdc-list-item__start, .mat-mdc-list-option .mdc-list-item__end {
   --mdc-checkbox-selected-checkmark-color: #F8F8FF;
-  --mdc-checkbox-selected-focus-icon-color: #9b755b;
-  --mdc-checkbox-selected-hover-icon-color: #9b755b;
-  --mdc-checkbox-selected-icon-color: #9b755b;
-  --mdc-checkbox-selected-pressed-icon-color: #9b755b;
+  --mdc-checkbox-selected-focus-icon-color: #397CC0;
+  --mdc-checkbox-selected-hover-icon-color: #397CC0;
+  --mdc-checkbox-selected-icon-color: #397CC0;
+  --mdc-checkbox-selected-pressed-icon-color: #397CC0;
   --mdc-checkbox-unselected-focus-icon-color: #212121;
   --mdc-checkbox-unselected-hover-icon-color: #212121;
   --mdc-checkbox-disabled-selected-icon-color: rgba(0, 0, 0, 0.38);
@@ -1734,12 +1734,12 @@ textarea.cdk-textarea-autosize-measuring-firefox {
   --mdc-radio-unselected-hover-icon-color: #212121;
   --mdc-radio-unselected-icon-color: rgba(0, 0, 0, 0.54);
   --mdc-radio-unselected-pressed-icon-color: rgba(0, 0, 0, 0.54);
-  --mdc-radio-selected-focus-icon-color: #9b755b;
-  --mdc-radio-selected-hover-icon-color: #9b755b;
-  --mdc-radio-selected-icon-color: #9b755b;
-  --mdc-radio-selected-pressed-icon-color: #9b755b;
+  --mdc-radio-selected-focus-icon-color: #397CC0;
+  --mdc-radio-selected-hover-icon-color: #397CC0;
+  --mdc-radio-selected-icon-color: #397CC0;
+  --mdc-radio-selected-pressed-icon-color: #397CC0;
   --mat-mdc-radio-ripple-color: #000;
-  --mat-mdc-radio-checked-ripple-color: #9b755b
+  --mat-mdc-radio-checked-ripple-color: #397CC0
 }
 
 .mat-mdc-list-option .mdc-list-item__start .mdc-radio--disabled + label, .mat-mdc-list-option .mdc-list-item__end .mdc-radio--disabled + label {
@@ -1748,10 +1748,10 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 
 .mat-mdc-list-option.mat-accent .mdc-list-item__start, .mat-mdc-list-option.mat-accent .mdc-list-item__end {
   --mdc-checkbox-selected-checkmark-color: #F8F8FF;
-  --mdc-checkbox-selected-focus-icon-color: #f89843;
-  --mdc-checkbox-selected-hover-icon-color: #f89843;
-  --mdc-checkbox-selected-icon-color: #f89843;
-  --mdc-checkbox-selected-pressed-icon-color: #f89843;
+  --mdc-checkbox-selected-focus-icon-color: #53BAAC;
+  --mdc-checkbox-selected-hover-icon-color: #53BAAC;
+  --mdc-checkbox-selected-icon-color: #53BAAC;
+  --mdc-checkbox-selected-pressed-icon-color: #53BAAC;
   --mdc-checkbox-unselected-focus-icon-color: #212121;
   --mdc-checkbox-unselected-hover-icon-color: #212121;
   --mdc-checkbox-disabled-selected-icon-color: rgba(0, 0, 0, 0.38);
@@ -1767,12 +1767,12 @@ textarea.cdk-textarea-autosize-measuring-firefox {
   --mdc-radio-unselected-hover-icon-color: #212121;
   --mdc-radio-unselected-icon-color: rgba(0, 0, 0, 0.54);
   --mdc-radio-unselected-pressed-icon-color: rgba(0, 0, 0, 0.54);
-  --mdc-radio-selected-focus-icon-color: #f89843;
-  --mdc-radio-selected-hover-icon-color: #f89843;
-  --mdc-radio-selected-icon-color: #f89843;
-  --mdc-radio-selected-pressed-icon-color: #f89843;
+  --mdc-radio-selected-focus-icon-color: #53BAAC;
+  --mdc-radio-selected-hover-icon-color: #53BAAC;
+  --mdc-radio-selected-icon-color: #53BAAC;
+  --mdc-radio-selected-pressed-icon-color: #53BAAC;
   --mat-mdc-radio-ripple-color: #000;
-  --mat-mdc-radio-checked-ripple-color: #f89843
+  --mat-mdc-radio-checked-ripple-color: #53BAAC
 }
 
 .mat-mdc-list-option.mat-accent .mdc-list-item__start .mdc-radio--disabled + label, .mat-mdc-list-option.mat-accent .mdc-list-item__end .mdc-radio--disabled + label {
@@ -1813,11 +1813,11 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mat-mdc-list-base.mat-mdc-list-base .mdc-list-item--selected .mdc-list-item__primary-text, .mat-mdc-list-base.mat-mdc-list-base .mdc-list-item--activated .mdc-list-item__primary-text {
-  color: #9b755b
+  color: #397CC0
 }
 
 .mat-mdc-list-base.mat-mdc-list-base .mdc-list-item--selected.mdc-list-item--with-leading-icon .mdc-list-item__start, .mat-mdc-list-base.mat-mdc-list-base .mdc-list-item--activated.mdc-list-item--with-leading-icon .mdc-list-item__start {
-  color: #9b755b
+  color: #397CC0
 }
 
 .mat-mdc-list-base .mdc-list-item--disabled .mdc-list-item__start, .mat-mdc-list-base .mdc-list-item--disabled .mdc-list-item__content, .mat-mdc-list-base .mdc-list-item--disabled .mdc-list-item__end {
@@ -1955,27 +1955,27 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mat-mdc-tab:not(.mat-mdc-tab-disabled).mdc-tab--active .mdc-tab__text-label, .mat-mdc-tab-link:not(.mat-mdc-tab-disabled).mdc-tab--active .mdc-tab__text-label {
-  color: #9b755b
+  color: #397CC0
 }
 
 .mat-mdc-tab:not(.mat-mdc-tab-disabled) .mdc-tab-indicator__content--underline, .mat-mdc-tab-link:not(.mat-mdc-tab-disabled) .mdc-tab-indicator__content--underline {
-  border-color: var(--mdc-tab-indicator-active-indicator-color, #9b755b)
+  border-color: var(--mdc-tab-indicator-active-indicator-color, #397CC0)
 }
 
 .mdc-tab__ripple::before, .mat-mdc-tab .mat-ripple-element, .mat-mdc-tab-header-pagination .mat-ripple-element, .mat-mdc-tab-link .mat-ripple-element {
-  background-color: #9b755b
+  background-color: #397CC0
 }
 
 .mat-mdc-tab-group.mat-accent .mat-mdc-tab:not(.mat-mdc-tab-disabled).mdc-tab--active .mdc-tab__text-label, .mat-mdc-tab-group.mat-accent .mat-mdc-tab-link:not(.mat-mdc-tab-disabled).mdc-tab--active .mdc-tab__text-label, .mat-mdc-tab-nav-bar.mat-accent .mat-mdc-tab:not(.mat-mdc-tab-disabled).mdc-tab--active .mdc-tab__text-label, .mat-mdc-tab-nav-bar.mat-accent .mat-mdc-tab-link:not(.mat-mdc-tab-disabled).mdc-tab--active .mdc-tab__text-label {
-  color: #f89843
+  color: #53BAAC
 }
 
 .mat-mdc-tab-group.mat-accent .mat-mdc-tab:not(.mat-mdc-tab-disabled) .mdc-tab-indicator__content--underline, .mat-mdc-tab-group.mat-accent .mat-mdc-tab-link:not(.mat-mdc-tab-disabled) .mdc-tab-indicator__content--underline, .mat-mdc-tab-nav-bar.mat-accent .mat-mdc-tab:not(.mat-mdc-tab-disabled) .mdc-tab-indicator__content--underline, .mat-mdc-tab-nav-bar.mat-accent .mat-mdc-tab-link:not(.mat-mdc-tab-disabled) .mdc-tab-indicator__content--underline {
-  border-color: var(--mdc-tab-indicator-active-indicator-color, #f89843)
+  border-color: var(--mdc-tab-indicator-active-indicator-color, #53BAAC)
 }
 
 .mat-mdc-tab-group.mat-accent .mdc-tab__ripple::before, .mat-mdc-tab-group.mat-accent .mat-mdc-tab .mat-ripple-element, .mat-mdc-tab-group.mat-accent .mat-mdc-tab-header-pagination .mat-ripple-element, .mat-mdc-tab-group.mat-accent .mat-mdc-tab-link .mat-ripple-element, .mat-mdc-tab-nav-bar.mat-accent .mdc-tab__ripple::before, .mat-mdc-tab-nav-bar.mat-accent .mat-mdc-tab .mat-ripple-element, .mat-mdc-tab-nav-bar.mat-accent .mat-mdc-tab-header-pagination .mat-ripple-element, .mat-mdc-tab-nav-bar.mat-accent .mat-mdc-tab-link .mat-ripple-element {
-  background-color: #f89843
+  background-color: #53BAAC
 }
 
 .mat-mdc-tab-group.mat-warn .mat-mdc-tab:not(.mat-mdc-tab-disabled).mdc-tab--active .mdc-tab__text-label, .mat-mdc-tab-group.mat-warn .mat-mdc-tab-link:not(.mat-mdc-tab-disabled).mdc-tab--active .mdc-tab__text-label, .mat-mdc-tab-nav-bar.mat-warn .mat-mdc-tab:not(.mat-mdc-tab-disabled).mdc-tab--active .mdc-tab__text-label, .mat-mdc-tab-nav-bar.mat-warn .mat-mdc-tab-link:not(.mat-mdc-tab-disabled).mdc-tab--active .mdc-tab__text-label {
@@ -1991,12 +1991,12 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mat-mdc-tab-group.mat-background-primary, .mat-mdc-tab-nav-bar.mat-background-primary {
-  --mat-mdc-tab-header-with-background-background-color: #9b755b;
+  --mat-mdc-tab-header-with-background-background-color: #397CC0;
   --mat-mdc-tab-header-with-background-foreground-color: #F8F8FF
 }
 
 .mat-mdc-tab-group.mat-background-accent, .mat-mdc-tab-nav-bar.mat-background-accent {
-  --mat-mdc-tab-header-with-background-background-color: #f89843;
+  --mat-mdc-tab-header-with-background-background-color: #53BAAC;
   --mat-mdc-tab-header-with-background-foreground-color: #F8F8FF
 }
 
@@ -2039,10 +2039,10 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 
 .mat-mdc-checkbox.mat-primary {
   --mdc-checkbox-selected-checkmark-color: #F8F8FF;
-  --mdc-checkbox-selected-focus-icon-color: #9b755b;
-  --mdc-checkbox-selected-hover-icon-color: #9b755b;
-  --mdc-checkbox-selected-icon-color: #9b755b;
-  --mdc-checkbox-selected-pressed-icon-color: #9b755b;
+  --mdc-checkbox-selected-focus-icon-color: #397CC0;
+  --mdc-checkbox-selected-hover-icon-color: #397CC0;
+  --mdc-checkbox-selected-icon-color: #397CC0;
+  --mdc-checkbox-selected-pressed-icon-color: #397CC0;
   --mdc-checkbox-unselected-focus-icon-color: #212121;
   --mdc-checkbox-unselected-hover-icon-color: #212121;
   --mdc-checkbox-disabled-selected-icon-color: rgba(0, 0, 0, 0.38);
@@ -2056,15 +2056,15 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mat-mdc-checkbox.mat-primary .mdc-checkbox--selected ~ .mdc-checkbox__ripple {
-  background: #9b755b
+  background: #397CC0
 }
 
 .mat-mdc-checkbox.mat-accent {
   --mdc-checkbox-selected-checkmark-color: #F8F8FF;
-  --mdc-checkbox-selected-focus-icon-color: #f89843;
-  --mdc-checkbox-selected-hover-icon-color: #f89843;
-  --mdc-checkbox-selected-icon-color: #f89843;
-  --mdc-checkbox-selected-pressed-icon-color: #f89843;
+  --mdc-checkbox-selected-focus-icon-color: #53BAAC;
+  --mdc-checkbox-selected-hover-icon-color: #53BAAC;
+  --mdc-checkbox-selected-icon-color: #53BAAC;
+  --mdc-checkbox-selected-pressed-icon-color: #53BAAC;
   --mdc-checkbox-unselected-focus-icon-color: #212121;
   --mdc-checkbox-unselected-hover-icon-color: #212121;
   --mdc-checkbox-disabled-selected-icon-color: rgba(0, 0, 0, 0.38);
@@ -2078,7 +2078,7 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mat-mdc-checkbox.mat-accent .mdc-checkbox--selected ~ .mdc-checkbox__ripple {
-  background: #f89843
+  background: #53BAAC
 }
 
 .mat-mdc-checkbox.mat-warn {
@@ -2148,11 +2148,11 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mat-mdc-button.mat-primary {
-  --mdc-text-button-label-text-color: #9b755b
+  --mdc-text-button-label-text-color: #397CC0
 }
 
 .mat-mdc-button.mat-accent {
-  --mdc-text-button-label-text-color: #f89843
+  --mdc-text-button-label-text-color: #53BAAC
 }
 
 .mat-mdc-button.mat-warn {
@@ -2170,12 +2170,12 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mat-mdc-unelevated-button.mat-primary {
-  --mdc-filled-button-container-color: #9b755b;
+  --mdc-filled-button-container-color: #397CC0;
   --mdc-filled-button-label-text-color: #F8F8FF
 }
 
 .mat-mdc-unelevated-button.mat-accent {
-  --mdc-filled-button-container-color: #f89843;
+  --mdc-filled-button-container-color: #53BAAC;
   --mdc-filled-button-label-text-color: #F8F8FF
 }
 
@@ -2197,12 +2197,12 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mat-mdc-raised-button.mat-primary {
-  --mdc-protected-button-container-color: #9b755b;
+  --mdc-protected-button-container-color: #397CC0;
   --mdc-protected-button-label-text-color: #F8F8FF
 }
 
 .mat-mdc-raised-button.mat-accent {
-  --mdc-protected-button-container-color: #f89843;
+  --mdc-protected-button-container-color: #53BAAC;
   --mdc-protected-button-label-text-color: #F8F8FF
 }
 
@@ -2228,11 +2228,11 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mat-mdc-outlined-button.mat-primary {
-  --mdc-outlined-button-label-text-color: #9b755b
+  --mdc-outlined-button-label-text-color: #397CC0
 }
 
 .mat-mdc-outlined-button.mat-accent {
-  --mdc-outlined-button-label-text-color: #f89843
+  --mdc-outlined-button-label-text-color: #53BAAC
 }
 
 .mat-mdc-outlined-button.mat-warn {
@@ -2264,12 +2264,12 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mat-mdc-button.mat-primary, .mat-mdc-outlined-button.mat-primary {
-  --mat-mdc-button-persistent-ripple-color: #9b755b;
+  --mat-mdc-button-persistent-ripple-color: #397CC0;
   --mat-mdc-button-ripple-color: #F8984319;
 }
 
 .mat-mdc-button.mat-accent, .mat-mdc-outlined-button.mat-accent {
-  --mat-mdc-button-persistent-ripple-color: #f89843;
+  --mat-mdc-button-persistent-ripple-color: #53BAAC;
   --mat-mdc-button-ripple-color: rgba(255, 64, 129, 0.1)
 }
 
@@ -2344,12 +2344,12 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mat-mdc-icon-button.mat-primary {
-  --mat-mdc-button-persistent-ripple-color: #9b755b;
+  --mat-mdc-button-persistent-ripple-color: #397CC0;
   --mat-mdc-button-ripple-color: #F8984319;
 }
 
 .mat-mdc-icon-button.mat-accent {
-  --mat-mdc-button-persistent-ripple-color: #f89843;
+  --mat-mdc-button-persistent-ripple-color: #53BAAC;
   --mat-mdc-button-ripple-color: rgba(255, 64, 129, 0.1)
 }
 
@@ -2359,11 +2359,11 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mat-mdc-icon-button.mat-primary {
-  --mdc-icon-button-icon-color: #9b755b
+  --mdc-icon-button-icon-color: #397CC0
 }
 
 .mat-mdc-icon-button.mat-accent {
-  --mdc-icon-button-icon-color: #f89843
+  --mdc-icon-button-icon-color: #53BAAC
 }
 
 .mat-mdc-icon-button.mat-warn {
@@ -2448,13 +2448,13 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mat-mdc-fab.mat-primary, .mat-mdc-mini-fab.mat-primary {
-  --mdc-fab-container-color: #9b755b;
+  --mdc-fab-container-color: #397CC0;
   --mdc-fab-icon-color: #F8F8FF;
   --mat-mdc-fab-color: #F8F8FF
 }
 
 .mat-mdc-fab.mat-accent, .mat-mdc-mini-fab.mat-accent {
-  --mdc-fab-container-color: #f89843;
+  --mdc-fab-container-color: #53BAAC;
   --mdc-fab-icon-color: #F8F8FF;
   --mat-mdc-fab-color: #F8F8FF
 }
@@ -2484,7 +2484,7 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mat-mdc-snack-bar-container {
-  --mat-mdc-snack-bar-button-color: #f89843;
+  --mat-mdc-snack-bar-button-color: #53BAAC;
   --mdc-snackbar-container-color: #333333;
   --mdc-snackbar-supporting-text-color: rgba(255, 255, 255, 0.87)
 }
@@ -2590,11 +2590,11 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mat-mdc-progress-spinner {
-  --mdc-circular-progress-active-indicator-color: #9b755b
+  --mdc-circular-progress-active-indicator-color: #397CC0
 }
 
 .mat-mdc-progress-spinner.mat-accent {
-  --mdc-circular-progress-active-indicator-color: #f89843
+  --mdc-circular-progress-active-indicator-color: #53BAAC
 }
 
 .mat-mdc-progress-spinner.mat-warn {
@@ -2786,7 +2786,7 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 
 .mat-badge-content {
   color: #F8F8FF;
-  background: #9b755b
+  background: #397CC0
 }
 
 .cdk-high-contrast-active .mat-badge-content {
@@ -2795,7 +2795,7 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mat-badge-accent .mat-badge-content {
-  background: #f89843;
+  background: #53BAAC;
   color: #F8F8FF
 }
 
@@ -2977,7 +2977,7 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mat-calendar-body-selected {
-  background-color: #9b755b;
+  background-color: #397CC0;
   color: #F8F8FF
 }
 
@@ -3030,7 +3030,7 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mat-datepicker-content.mat-accent .mat-calendar-body-selected {
-  background-color: #f89843;
+  background-color: #53BAAC;
   color: #F8F8FF
 }
 
@@ -3104,11 +3104,11 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mat-datepicker-toggle-active {
-  color: #9b755b
+  color: #397CC0
 }
 
 .mat-datepicker-toggle-active.mat-accent {
-  color: #f89843
+  color: #53BAAC
 }
 
 .mat-datepicker-toggle-active.mat-warn {
@@ -3261,11 +3261,11 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mat-icon.mat-primary {
-  color: #9b755b
+  color: #397CC0
 }
 
 .mat-icon.mat-accent {
-  color: #f89843
+  color: #53BAAC
 }
 
 .mat-icon.mat-warn {
@@ -3341,7 +3341,7 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mat-step-header .mat-step-icon-selected, .mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit {
-  background-color: #9b755b;
+  background-color: #397CC0;
   color: #F8F8FF
 }
 
@@ -3350,7 +3350,7 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mat-step-header.mat-accent .mat-step-icon-selected, .mat-step-header.mat-accent .mat-step-icon-state-done, .mat-step-header.mat-accent .mat-step-icon-state-edit {
-  background-color: #f89843;
+  background-color: #53BAAC;
   color: #F8F8FF
 }
 
@@ -3441,12 +3441,12 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mat-toolbar.mat-primary {
-  background: #9b755b;
+  background: #397CC0;
   color: #F8F8FF
 }
 
 .mat-toolbar.mat-accent {
-  background: #f89843;
+  background: #53BAAC;
   color: #F8F8FF
 }
 

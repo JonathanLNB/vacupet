@@ -34,6 +34,26 @@ export class UserRepository {
         }
     }
 
+    public async getUserById(Id: string, relations?: object): Promise<User> {
+        let Users: User[];
+        if (relations) {
+            Users = await this.repository.find({
+                where: {
+                    Id: Id
+                },
+                relations: relations
+            });
+        } else {
+            Users = await this.repository.findBy({
+                Id: Id
+            });
+        }
+        if (Users) {
+            return Users.length < 1 ? null : Users[0];
+        }
+        return null;
+    }
+
     public async getUserByFirebase(firebaseID: string, relations?: object): Promise<User> {
         let Users: User[];
         if (relations) {

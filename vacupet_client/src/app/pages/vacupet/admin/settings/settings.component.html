@@ -1,0 +1,3 @@
+<h1>Settings</h1>
+<app-data-table [canCreate]="false" [data]="data" [tableHeaders]="getTableHeaders(tableHeaders)" (element)="getSetting($event)"
+                (newEdit)="createUpdateSetting($event)"></app-data-table>

@@ -9,7 +9,7 @@ import {ISetting} from "../Models/Database/Interfaces/ISetting";
 import {Setting} from "../Models/Database/Entities/Setting";
 import {decryptENV} from "../Tools/Utils";
 
-export function GetSettingRoutes(dataSource: DataSource): Router {
+export function GetSettingsRoutes(dataSource: DataSource): Router {
     const loggerCfg = {
         ...JSON.parse(decryptENV(process.env.LOGGER)),
         operationId: '/setting'

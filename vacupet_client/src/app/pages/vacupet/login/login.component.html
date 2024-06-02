@@ -1,0 +1,42 @@
+<div class="bg">
+  <div class="main-div">
+    <mat-card>
+      <mat-card-header>
+        <img src="../../../../assets/images/vacupet.png"
+             class="mb-auto mx-auto" width="250"
+             alt=""/>
+      </mat-card-header>
+      <mat-card-content>
+        <h2>Bienvenid@ a Vacupet</h2>
+        <form [formGroup]="registrationForm">
+          <mat-form-field>
+            <mat-label>Correo Electrónico</mat-label>
+            <input matInput placeholder="Correo Electrónico" type="text" name="username" formControlName="user"
+                   required>
+            <mat-error>
+              Por favor, ingresa tu Correo Electrónico
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Contraseña</mat-label>
+            <input matInput placeholder="Contraseña" [type]="hide ? 'password' : 'text'" name="password"
+                   formControlName="password" required>
+            <button type="button" mat-icon-button matSuffix (click)="hide = !hide"
+                    [attr.aria-label]="'Hide Password'"
+                    [attr.aria-pressed]="hide">
+              <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+            <mat-error>
+              Por favor, ingresa tu Contraseña
+            </mat-error>
+          </mat-form-field>
+          <a mat-flat-button (click)="forgotPasswordDialog()">¿Olvidaste tu contraseña?</a>
+          <br>
+          <br>
+          <button mat-raised-button color="accent" [disabled]="!registrationForm.valid" (click)="onSubmit()">Ingresar
+          </button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

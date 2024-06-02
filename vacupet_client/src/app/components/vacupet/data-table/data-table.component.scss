@@ -1,0 +1,43 @@
+.main-div {
+  display: grid;
+  justify-content: initial;
+  width: 100%;
+}
+
+.demo-table {
+  width: 100%;
+}
+
+.mat-mdc-form-field {
+  min-width: 100%;
+}
+
+.mat-mdc-row .mat-mdc-cell {
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+  cursor: pointer;
+}
+
+.mat-mdc-row:hover .mat-mdc-cell {
+  border-color: currentColor;
+}
+
+.demo-row-is-clicked {
+  font-weight: bold;
+}
+
+.md-fab-bottom-right{
+  margin-bottom: 15px;
+}
+
+.mat-mdc-standard-chip {
+  --mdc-chip-elevated-container-color: #F89843;
+  --mdc-chip-elevated-disabled-container-color: #F89843;
+  --mdc-chip-label-text-color: #F8F8FF;
+  --mdc-chip-disabled-label-text-color: #212121;
+  --mdc-chip-with-icon-icon-color: #212121;
+  --mdc-chip-with-icon-disabled-icon-color: #212121;
+  --mdc-chip-with-trailing-icon-disabled-trailing-icon-color: #212121;
+  --mdc-chip-with-trailing-icon-trailing-icon-color: #212121;
+  --mdc-chip-with-icon-selected-icon-color: #212121;
+}

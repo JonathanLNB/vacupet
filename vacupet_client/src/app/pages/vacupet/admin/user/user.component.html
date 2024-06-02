@@ -1,0 +1,3 @@
+<h1>Users</h1>
+<app-data-table [canCreate]="true" [data]="data" [tableHeaders]="getTableHeaders(tableHeaders)" (element)="getUser($event)" (deleteF)="deleteUser($event)"
+                (newEdit)="createUpdateUser($event)"></app-data-table>

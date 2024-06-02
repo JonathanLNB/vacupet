@@ -64,7 +64,7 @@ export abstract class FileManager {
     private static GetFilesFromRequest(req: Request, uploaderType: FileUploaderType): UploadedFile | UploadedFile[] {
         switch (uploaderType) {
             case FileUploaderType.Checklist:
-                return req.files.checklist;
+                return req.files.vacupet;
             default:
                 return req.files.files;
         }

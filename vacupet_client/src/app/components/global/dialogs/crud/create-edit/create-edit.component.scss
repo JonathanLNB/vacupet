@@ -1,0 +1,69 @@
+h1 {
+  font-family: GoogleSansBold, sans-serif !important;
+  color: #626161;
+}
+
+h3 {
+  font-family: GoogleSansBold, sans-serif !important;
+  color: #626161;
+  margin: 0px;
+}
+
+p {
+  font-family: GoogleSans, sans-serif !important;
+  font-size: small;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+
+.mat-mdc-card-header{
+  align-self: center;
+}
+
+.main-div{
+  height: 100vh;
+  display: contents;
+  justify-content: center;
+  align-items: center;
+}
+
+.mat-mdc-dialog-actions {
+  justify-content: end;
+  padding-right: 25px;
+}
+
+.list-configuration {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  display: flow-root !important;
+  align-items: start;
+  justify-content: start;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.mat-mdc-form-field {
+  min-width: 90%;
+  margin-left: 15px;
+}
+
+.labelBeforeSlide {
+  vertical-align: top;
+  line-height: 24px;
+  margin-right:0.5rem;
+  margin-bottom:0.5rem;
+}
+
+@media screen and (max-width: 480px) {
+  .mat-mdc-form-field {
+    min-width: 100%;
+    margin-left: 0px;
+  }
+}

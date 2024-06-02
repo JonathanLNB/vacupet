@@ -8,6 +8,10 @@ export class Vaccinated {
     Id: string
     @Column()
     ApplicationDate: Date
+    @Column()
+    NextApplicationDate: Date
+    @Column()
+    Weight: number
     @ManyToOne(() => Pet, (pet) => pet.Vaccinated)
     Pet: Pet
     @ManyToOne(() => Vaccine, (vaccine) => vaccine.Vaccinated)

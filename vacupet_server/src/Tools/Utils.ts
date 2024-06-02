@@ -1,5 +1,16 @@
 import * as CryptoJS from "crypto-js";
 
+function encryptENV(txt: string): string {
+    const key: CryptoJS.lib.WordArray = CryptoJS.enc.Utf8.parse(process.env.ENV_SECRET_KEY)
+    const iv: CryptoJS.lib.WordArray = CryptoJS.enc.Utf8.parse(process.env.ENV_SECRET_IV)
+    const cipher = CryptoJS.AES.encrypt(txt, key, {
+        iv: iv,
+        mode: CryptoJS.mode.CBC,
+        padding: CryptoJS.pad.Pkcs7
+    })
+    return cipher.toString();
+}
+
 function decryptENV(txtToDecrypt: string): string {
     const key: CryptoJS.lib.WordArray = CryptoJS.enc.Utf8.parse(process.env.ENV_SECRET_KEY)
     const iv: CryptoJS.lib.WordArray = CryptoJS.enc.Utf8.parse(process.env.ENV_SECRET_IV)
@@ -51,4 +62,4 @@ function formatDate(oldDate: any): string {
     return [month, day, year].join('/')
 }
 
-export {decryptENV, encrypt, decrypt, formatDate}
+export {encryptENV, decryptENV, encrypt, decrypt, formatDate}

@@ -3,7 +3,7 @@ import {FirebaseUser} from "../../Models/Interfaces/FirebaseUser";
 import {FirebaseResponse} from "../../Models/Interfaces/FirebaseResponse";
 
 export class FirebaseRepository {
-    async addUser(user: FirebaseUser): Promise<FirebaseResponse> {
+    async addUser(user: FirebaseUser, resetPassword: boolean): Promise<FirebaseResponse> {
         let uid = "";
         if (!user)
             return {Success: false, Message: "User is null"};
@@ -18,6 +18,8 @@ export class FirebaseRepository {
                 displayName: `${user.Name} ${user.LastName}`,
                 disabled: false,
             });
+            if (resetPassword)
+                await getAuth().generatePasswordResetLink(user.Email);
 
             uid = userResponse.uid;
         } catch (e) {
@@ -44,7 +46,7 @@ export class FirebaseRepository {
         try {
             let props = {
                 email: user.Email,
-                phoneNumber: `+1${user.PhoneNumber}`,
+                phoneNumber: `+52${user.PhoneNumber}`,
                 displayName: `${user.Name} ${user.LastName}`,
                 disabled: user.Disabled,
                 emailVerified: true,
