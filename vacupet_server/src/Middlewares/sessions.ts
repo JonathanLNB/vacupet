@@ -1,12 +1,12 @@
 import jwt from "jwt-simple";
 import moment from "moment";
-import {User} from "../Models/Database/Entities/Person/User";
 import {GenericResponse} from "../Models/Interfaces/GenericResponse";
 import {AuthPayload} from "../Models/Interfaces/AuthPayload";
 import {IUser} from "../Models/Database/Interfaces/Person/IUser";
 import {decryptENV} from "../Tools/Utils";
 
 export function GetUnauthorizedResponse(req, res, next): GenericResponse {
+    console.log("Hola");
     return req.auth ? {
         Success: false,
         Message: `Invalid credentials: ${req.auth.user}:${req.auth.password}`

@@ -2,7 +2,8 @@ export interface DataHeaders {
   header: string;
   name: string;
   type: string;
-  elementKey?: string;
+  elementKey: string;
+  subtype?: string;
   isVisibleTable?: boolean;
   isVisibleShow?: boolean;
   isVisibleCreate?: boolean;

@@ -6,7 +6,7 @@
         <div class="list-configuration">
           <h3>{{header.header}}</h3>
           <p *ngIf="header.type==='date'">
-            {{formatDateString(element[header.name]) | date:'MM/dd/yyyy'}}
+            {{formatDateString(element[header.name]) | date:'dd/MM/yyyy'}}
           </p>
           <p *ngIf="header.type==='element' && header.elementKey">
             {{ getElement(element, header)}}

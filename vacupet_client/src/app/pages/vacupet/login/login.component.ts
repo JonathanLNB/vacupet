@@ -51,7 +51,7 @@ export class LoginComponent {
             const response: GenericResponse = (await this.authService.LogIn(user))!.data;
             if (response.Success) {
               const user: User = response.Response;
-              if (user.UserType.Id === UserTypes.ADMIN  && user.IsActive) {
+              if (user.UserType!.Id === UserTypes.ADMIN  && user.IsActive) {
                 this.localStore.saveData("accessToken", <string>response.AccessToken);
                 this.localStore.saveData("username", `${user.Firstname}  ${user.Middlename} ${user.Lastname}`);
                 this.localStore.saveData("usertype", JSON.stringify(user.UserType));

@@ -27,6 +27,7 @@ export class UserComponent implements AfterViewInit {
   public tableHeaders: DataHeaders[] = [{
     header: "ID",
     name: "Id",
+    elementKey: "Id",
     type: "text",
     isVisibleTable: false,
     isVisibleShow: true,
@@ -35,6 +36,7 @@ export class UserComponent implements AfterViewInit {
   }, {
     header: "Apellidos",
     name: "Lastname",
+    elementKey: "Lastname",
     type: "text",
     isVisibleTable: true,
     isVisibleShow: true,
@@ -43,6 +45,7 @@ export class UserComponent implements AfterViewInit {
   }, {
     header: "Nombre",
     name: "Firstname",
+    elementKey: "Firstname",
     type: "text",
     isVisibleTable: true,
     isVisibleShow: true,
@@ -51,6 +54,7 @@ export class UserComponent implements AfterViewInit {
   }, {
     header: "Segundo Nombre",
     name: "Middlename",
+    elementKey: "Middlename",
     type: "text",
     isVisibleTable: true,
     isVisibleShow: true,
@@ -59,6 +63,7 @@ export class UserComponent implements AfterViewInit {
   }, {
     header: "E-mail",
     name: "Email",
+    elementKey: "Email",
     type: "text",
     isVisibleTable: true,
     isVisibleShow: true,
@@ -67,6 +72,7 @@ export class UserComponent implements AfterViewInit {
   }, {
     header: "Teléfono",
     name: "PhoneNumber",
+    elementKey: "PhoneNumber",
     type: "phone",
     isVisibleTable: true,
     isVisibleShow: true,
@@ -75,6 +81,7 @@ export class UserComponent implements AfterViewInit {
   }, {
     header: "Fecha de nacimiento",
     name: "DateOfBirth",
+    elementKey: "DateOfBirth",
     type: "date",
     isVisibleTable: true,
     isVisibleShow: true,
@@ -83,6 +90,7 @@ export class UserComponent implements AfterViewInit {
   }, {
     header: "Fecha de creación",
     name: "CreatedAt",
+    elementKey: "CreatedAt",
     type: "date",
     isVisibleTable: true,
     isVisibleShow: true,
@@ -91,6 +99,7 @@ export class UserComponent implements AfterViewInit {
   }, {
     header: "Ultima conexión",
     name: "UpdatedAt",
+    elementKey: "UpdatedAt",
     type: "date",
     isVisibleTable: false,
     isVisibleShow: true,
@@ -99,8 +108,8 @@ export class UserComponent implements AfterViewInit {
   }, {
     header: "Tipo de usuario",
     name: "UserType",
-    type: "element",
     elementKey: "Name",
+    type: "element",
     isVisibleTable: true,
     isVisibleShow: true,
     isVisibleCreate: true,
@@ -108,6 +117,7 @@ export class UserComponent implements AfterViewInit {
   }, {
     header: "Activo",
     name: "IsActive",
+    elementKey: "IsActive",
     type: "boolean",
     isVisibleTable: true,
     isVisibleShow: true,
@@ -116,6 +126,7 @@ export class UserComponent implements AfterViewInit {
   }, {
     header: "Acciones",
     name: "",
+    elementKey: "",
     type: "actions",
     isVisibleTable: true,
     isVisibleShow: false,
@@ -302,9 +313,9 @@ export class UserComponent implements AfterViewInit {
     );
 
     if (user) {
-      if (user.UserType.Id) {
+      if (user.UserType!.Id) {
         for (const op of options) {
-          if (op.Id === user.UserType.Id)
+          if (op.Id === user.UserType!.Id)
             userTypeControl = new FormControl<string | any>(op);
         }
       }
@@ -386,7 +397,7 @@ export class UserComponent implements AfterViewInit {
       width: '600px',
       disableClose: true,
       data: {
-        element: `user ${user.Firstname} ${user.Middlename} ${user.Lastname}: ${user.UserType.Name}`,
+        element: `user ${user.Firstname} ${user.Middlename} ${user.Lastname}: ${user.UserType!.Name}`,
         onDelete: async () => {
           await this.removeUser(user.Id!);
           reference.close()

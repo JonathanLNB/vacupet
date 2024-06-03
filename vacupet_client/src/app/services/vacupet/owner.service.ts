@@ -5,7 +5,7 @@ import {requestBuilder} from "../../utils/requestbuilder";
 import {Peticiones} from "../../utils/peticiones";
 import {LocalStorageService} from "../global/local-storage.service";
 import {GlobalService} from "./global-service.service";
-import {Owner} from "../../interfaces/person/owner";
+import {User} from "../../interfaces/person/user";
 
 @Injectable({
   providedIn: 'root'
@@ -24,20 +24,20 @@ export class OwnerService {
     });
   }
 
-  addOwner(owner: Owner) {
+  addOwner(user: User) {
     return requestBuilder({
       method: Peticiones.POST,
-      url: `${this.globalService.vacupetAPI}owner/`,
-      body: owner,
+      url: `${this.globalService.vacupetAPI}user/`,
+      body: user,
       headers: {headers: {Authorization: `Bearer ${this.localStorage.getData("accessToken")}`}}
     });
   }
 
-  updateOwner(owner: Owner) {
+  updateOwner(user: User) {
     return requestBuilder({
       method: Peticiones.PUT,
-      url: `${this.globalService.vacupetAPI}owner/`,
-      body: owner,
+      url: `${this.globalService.vacupetAPI}user/`,
+      body: user,
       headers: {headers: {Authorization: `Bearer ${this.localStorage.getData("accessToken")}`}}
     });
   }

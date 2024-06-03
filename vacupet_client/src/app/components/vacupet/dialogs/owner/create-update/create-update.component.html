@@ -1,0 +1,150 @@
+<div class="main-div">
+  <mat-stepper #stepper>
+    <mat-step [stepControl]="userF" errorMessage="Por favor, ingresa información del propietario">
+      <form [formGroup]="userF">
+        <ng-template matStepLabel>Propietario</ng-template>
+        <mat-grid-list [cols]="breakpoint" rowHeight="8rem" (window:resize)="onResize($event)"
+                       style="margin-top: 10px">
+          <mat-grid-tile>
+            <div class="row">
+              <mat-form-field>
+                <mat-label>Nombre</mat-label>
+                <input
+                  matInput
+                  placeholder="Nombre"
+                  type="text"
+                  required="true"
+                  formControlName="Firstname">
+                <mat-error>
+                  Por favor, ingresa el primer nombre del propietario
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <div class="row">
+              <mat-form-field>
+                <mat-label>Segundo Nombre</mat-label>
+                <input
+                  matInput
+                  placeholder="Segundo Nombre"
+                  type="text"
+                  formControlName="Middlename">
+                <mat-error>
+                  Por favor, ingresa el segundo nombre del propietario
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <div class="row">
+              <mat-form-field>
+                <mat-label>Apellidos</mat-label>
+                <input
+                  matInput
+                  placeholder="Apellidos"
+                  type="text"
+                  required="true"
+                  formControlName="Lastname"/>
+                <mat-error>
+                  Por favor, ingresa los apellidos del propietario
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <div class="row">
+              <mat-form-field>
+                <mat-label>Dirección</mat-label>
+                <textarea
+                  matInput
+                  placeholder="Dirección"
+                  type="text"
+                  required="true"
+                  formControlName="Address"></textarea>
+                <mat-error>
+                  Por favor, ingresa la dirección del propietario
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <div class="row">
+              <mat-form-field>
+                <mat-label>Correo electrónico</mat-label>
+                <input
+                  matInput
+                  placeholder="Correo electrónico"
+                  type="email"
+                  required="true"
+                  formControlName="Email"/>
+                <mat-error>
+                  Por favor, ingresa el correo electrónico del propietario
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <div class="row">
+              <mat-form-field>
+                <mat-label>Teléfono</mat-label>
+                <input
+                  matInput
+                  placeholder="Teléfono"
+                  type="phone"
+                  required="true"
+                  (input)="validateOnlyNumber($event)"
+                  formControlName="PhoneNumber"/>
+                <mat-error>
+                  Por favor, ingresa el teléfono del propietario
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <div class="row">
+              <mat-form-field>
+                <mat-label>Fecha de nacimiento</mat-label>
+                <input
+                  matInput
+                  placeholder="Fecha de naciemiento"
+                  type="date"
+                  required="true"
+                  formControlName="DateOfBirth">
+                <mat-error>
+                  Por favor, ingresa la fecha de nacimiento de la mascota
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </form>
+      <div mat-dialog-actions>
+        <button mat-button (click)="closeDialog(false)">Cancelar</button>
+        <button mat-button matStepperNext>Siguiente</button>
+      </div>
+    </mat-step>
+    <mat-step [completed]="evaluatePets()" [stepControl]="petF"
+              errorMessage="Por favor, revisa la información de sus mascotas antes de continuar">
+      <form [formGroup]="petF">
+        <ng-template matStepLabel>Mascotas</ng-template>
+        <app-pet-item [create]="create" [data]="pet" [position]="indice" [petTypes]="petTypes" [allergies]="allergies"
+                      (removeElement)="removePet($event)"
+                      *ngFor="let pet of pets; let indice = index"
+                      style="margin-bottom: 10px"></app-pet-item>
+        <div class="md-fab-bottom-center">
+          <button mat-fab extended color="primary" (click)="addPet()">
+            <mat-icon>add</mat-icon>
+            Agregar mascota
+          </button>
+        </div>
+        <div mat-dialog-actions>
+          <button mat-button matStepperPrevious>Regresar</button>
+          <button *ngIf="validateData();" mat-raised-button color="primary"
+                  (click)="saveOwner()">Guardar
+          </button>
+        </div>
+      </form>
+    </mat-step>
+  </mat-stepper>
+</div>

@@ -46,7 +46,13 @@ export class OwnerController {
         try {
             let owners = await this._ownerRepository.getAllOwners({
                 User: true,
-                Pets: true
+                Pets: {
+                    PetType: true,
+                    Allergies: true,
+                    Vaccinated: {
+                        Vaccine: true
+                    }
+                }
             });
             if (owners) {
                 allOwners = owners.map((owner) => {

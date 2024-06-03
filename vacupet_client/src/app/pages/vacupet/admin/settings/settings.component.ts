@@ -21,6 +21,7 @@ export class SettingsComponent {
   public tableHeaders: DataHeaders[] = [{
     header: "ID",
     name: "Id",
+    elementKey: "Id",
     type: "text",
     isVisibleTable: false,
     isVisibleShow: true,
@@ -29,6 +30,7 @@ export class SettingsComponent {
   }, {
     header: "Nombre",
     name: "Name",
+    elementKey: "Name",
     type: "text",
     isVisibleTable: true,
     isVisibleShow: true,
@@ -37,6 +39,7 @@ export class SettingsComponent {
   }, {
     header: "Descripción",
     name: "Description",
+    elementKey: "Description",
     type: "text",
     isVisibleTable: true,
     isVisibleShow: true,
@@ -45,6 +48,7 @@ export class SettingsComponent {
   }, {
     header: "Valor",
     name: "Value",
+    elementKey: "Value",
     type: "text",
     isVisibleTable: true,
     isVisibleShow: true,
@@ -52,6 +56,7 @@ export class SettingsComponent {
   }, {
     header: "Acciones",
     name: "",
+    elementKey: "",
     type: "actions",
     isVisibleTable: true,
     isVisibleShow: false,

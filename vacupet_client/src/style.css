@@ -471,7 +471,7 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mat-mdc-progress-bar .mdc-linear-progress__buffer-bar {
-  background-color: #F8984340
+  background-color: #53BAAC40
 }
 
 .mat-mdc-progress-bar.mat-accent {
@@ -1540,8 +1540,8 @@ textarea.cdk-textarea-autosize-measuring-firefox {
   --mdc-slider-with-tick-marks-active-container-color: #F8F8FF;
   --mdc-slider-with-tick-marks-inactive-container-color: #397CC0;
   --mat-mdc-slider-ripple-color: #397CC0;
-  --mat-mdc-slider-hover-ripple-color: #F898430D;
-  --mat-mdc-slider-focus-ripple-color: #F8984333;
+  --mat-mdc-slider-hover-ripple-color: #53BAAC0D;
+  --mat-mdc-slider-focus-ripple-color: #53BAAC33;
 }
 
 .mat-mdc-slider.mat-accent {
@@ -2052,7 +2052,7 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mat-mdc-checkbox.mat-primary .mdc-checkbox--selected ~ .mat-mdc-checkbox-ripple .mat-ripple-element {
-  background-color: #F8984319
+  background-color: #53BAAC19
 }
 
 .mat-mdc-checkbox.mat-primary .mdc-checkbox--selected ~ .mdc-checkbox__ripple {
@@ -2265,7 +2265,7 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 
 .mat-mdc-button.mat-primary, .mat-mdc-outlined-button.mat-primary {
   --mat-mdc-button-persistent-ripple-color: #397CC0;
-  --mat-mdc-button-ripple-color: #F8984319;
+  --mat-mdc-button-ripple-color: #53BAAC19;
 }
 
 .mat-mdc-button.mat-accent, .mat-mdc-outlined-button.mat-accent {
@@ -2345,7 +2345,7 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 
 .mat-mdc-icon-button.mat-primary {
   --mat-mdc-button-persistent-ripple-color: #397CC0;
-  --mat-mdc-button-ripple-color: #F8984319;
+  --mat-mdc-button-ripple-color: #53BAAC19;
 }
 
 .mat-mdc-icon-button.mat-accent {
@@ -2510,7 +2510,7 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mdc-data-table__row--selected {
-  background-color: #F898430A
+  background-color: #53BAAC0A
 }
 
 .mdc-data-table__pagination-rows-per-page-select--outlined:not(.mdc-select--disabled) .mdc-notched-outline__leading, .mdc-data-table__pagination-rows-per-page-select--outlined:not(.mdc-select--disabled) .mdc-notched-outline__notch, .mdc-data-table__pagination-rows-per-page-select--outlined:not(.mdc-select--disabled) .mdc-notched-outline__trailing {
@@ -2953,7 +2953,7 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mat-calendar-body-in-range::before {
-  background: #F8984333
+  background: #53BAAC33
 }
 
 .mat-calendar-body-comparison-identical, .mat-calendar-body-in-comparison-range::before {
@@ -2961,11 +2961,11 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mat-calendar-body-comparison-bridge-start::before, [dir=rtl] .mat-calendar-body-comparison-bridge-end::before {
-  background: linear-gradient(to right, #F8984333 50%, rgba(249, 171, 0, 0.2) 50%)
+  background: linear-gradient(to right, #53BAAC33 50%, rgba(249, 171, 0, 0.2) 50%)
 }
 
 .mat-calendar-body-comparison-bridge-end::before, [dir=rtl] .mat-calendar-body-comparison-bridge-start::before {
-  background: linear-gradient(to left, #F8984333 50%, rgba(249, 171, 0, 0.2) 50%)
+  background: linear-gradient(to left, #53BAAC33 50%, rgba(249, 171, 0, 0.2) 50%)
 }
 
 .mat-calendar-body-in-range > .mat-calendar-body-comparison-identical, .mat-calendar-body-in-comparison-range.mat-calendar-body-in-range::after {
@@ -2982,7 +2982,7 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mat-calendar-body-disabled > .mat-calendar-body-selected {
-  background-color: #F8984366
+  background-color: #53BAAC66
 }
 
 .mat-calendar-body-today.mat-calendar-body-selected {
@@ -2990,12 +2990,12 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .cdk-keyboard-focused .mat-calendar-body-active > .mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical), .cdk-program-focused .mat-calendar-body-active > .mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical) {
-  background-color: #F898434C
+  background-color: #53BAAC4C
 }
 
 @media (hover: hover) {
   .mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover > .mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical) {
-    background-color: #F898434C
+    background-color: #53BAAC4C
   }
 }
 

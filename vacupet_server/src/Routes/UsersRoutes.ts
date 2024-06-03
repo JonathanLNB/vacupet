@@ -29,8 +29,9 @@ export function GetUsersRoutes(dataSource: DataSource): Router {
     router.post("/", [loggerOptions, async (req: Request, res: Response, next: NextFunction): Promise<void> => {
         let gResponse: GenericResponse;
         try {
-            const password = decrypt(req.body.Password);
-            delete req.body.Password;
+            const password = req.body.Password ? decrypt(req.body.Password) : decryptENV(process.env.PS_TEMPORAL);
+            if (req.body.Password)
+                delete req.body.Password;
             let user: User = req.body as User;
             let userResponse = await userController.createUser(user, password);
             if (userResponse.Success) {
@@ -46,6 +47,7 @@ export function GetUsersRoutes(dataSource: DataSource): Router {
                 res.status(500);
             }
         } catch (e) {
+            logger.error(e);
             gResponse = {
                 Success: false,
                 Message: "Error adding the user"

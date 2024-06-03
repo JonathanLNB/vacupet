@@ -14,6 +14,7 @@ export class OwnerRepository {
         try {
             return await this.repository.save(Owner);
         } catch (e) {
+            console.error(e)
             console.error('Error saving a new Owner', e)
         }
     }

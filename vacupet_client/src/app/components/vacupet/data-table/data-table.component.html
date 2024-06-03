@@ -27,7 +27,7 @@
           </th>
         </div>
         <div *ngIf="!header.notSortable">
-          <th mat-header-cell *matHeaderCellDef [mat-sort-header]="header.name">
+          <th mat-header-cell *matHeaderCellDef [mat-sort-header]="header.elementKey">
             {{ header.header }}
           </th>
         </div>
@@ -35,9 +35,16 @@
           <div *ngIf="header.type==='date'">
             {{ formatDateString(element[header.name]) | date:'dd/MM/yyyy' }}
           </div>
-          <div *ngIf="header.type==='element' && header.elementKey">
+          <p *ngIf="header.type==='element' && header.elementKey && header.subtype === 'date'">
+            {{ formatDateString(getElement(element, header))| date:'dd/MM/yyyy' }}
+          </p>
+          <p *ngIf="header.type==='element' && header.elementKey && header.subtype === 'phone'">
+            {{ getPhone(getElement(element, header)) }}
+          </p>
+          <p
+            *ngIf="header.type==='element' && header.elementKey && header.subtype !== 'phone' && header.subtype !== 'date'">
             {{ getElement(element, header) }}
-          </div>
+          </p>
           <div *ngIf="header.type==='elements' && header.elementKey">
             {{ getElements(element[header.name], header) }}
           </div>

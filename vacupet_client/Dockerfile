@@ -4,10 +4,12 @@ COPY ["package.json", "/usr/src"]
 
 WORKDIR /usr/src
 
+ENV NODE_OPTIONS="--max_old_space_size=4096"
+
+
+RUN npm install -g @angular/cli
 RUN npm install
-RUN npm install -g ts-node
 
 COPY [".", "/usr/src/"]
 
-EXPOSE 3000
-
+EXPOSE 4200

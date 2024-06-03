@@ -1,6 +1,16 @@
 version: "3.8"
 
 services:
+  vacupet_client:
+    build: ./vacupet_client/
+    depends_on:
+      - vacupet_server
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./vacupet_client/:/usr/src
+      - /usr/src/node_modules
+    command: bash -c "ng serve -o --host 0.0.0.0"
   vacupet_server:
     build: ./vacupet_server/
     depends_on:

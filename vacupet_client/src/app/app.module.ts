@@ -30,7 +30,7 @@ import {MatSelectModule} from "@angular/material/select";
 import {NgxMaskModule} from "ngx-mask";
 import {VacupetComponent} from "./pages/vacupet/vacupet.component";
 import {AngularFireRemoteConfigModule} from "@angular/fire/compat/remote-config";
-import {GlobalService} from "./services/vacupet/global-service.service";
+import {MatFormFieldModule} from "@angular/material/form-field";
 
 @NgModule({
   declarations: [
@@ -66,6 +66,7 @@ import {GlobalService} from "./services/vacupet/global-service.service";
     CdkDrag,
     MatDividerModule,
     MatSelectModule,
+    MatFormFieldModule,
     NgxMaskModule.forRoot()
   ],
   providers: [
@@ -73,7 +74,5 @@ import {GlobalService} from "./services/vacupet/global-service.service";
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(private globalService: GlobalService, ) {
 
-  }
 }

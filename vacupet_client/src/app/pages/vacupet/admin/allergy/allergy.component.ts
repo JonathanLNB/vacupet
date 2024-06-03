@@ -22,6 +22,7 @@ export class AllergyComponent {
   public tableHeaders: DataHeaders[] = [{
     header: "ID",
     name: "Id",
+    elementKey: "Id",
     type: "text",
     isVisibleTable: false,
     isVisibleShow: true,
@@ -30,6 +31,7 @@ export class AllergyComponent {
   }, {
     header: "Alergia",
     name: "Name",
+    elementKey: "Name",
     type: "text",
     isVisibleTable: true,
     isVisibleShow: true,
@@ -38,6 +40,7 @@ export class AllergyComponent {
   }, {
     header: "Descripción",
     name: "Description",
+    elementKey: "Description",
     type: "text",
     isVisibleTable: true,
     isVisibleShow: true,
@@ -46,6 +49,7 @@ export class AllergyComponent {
   }, {
     header: "Acciones",
     name: "",
+    elementKey: "",
     type: "actions",
     isVisibleTable: true,
     isVisibleShow: false,

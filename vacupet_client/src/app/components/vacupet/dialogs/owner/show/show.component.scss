@@ -1,0 +1,63 @@
+h1 {
+  font-family: GoogleSansBold, sans-serif !important;
+  color: #626161;
+}
+
+h3 {
+  font-family: GoogleSansBold, sans-serif !important;
+  color: #626161;
+  margin: 0px;
+}
+
+h4 {
+  font-family: GoogleSansBold, sans-serif !important;
+  color: #626161;
+  margin: 0px;
+}
+
+p {
+  font-family: GoogleSans, sans-serif !important;
+  font-size: small;
+}
+
+.mat-mdc-card-header{
+  align-self: center;
+}
+
+.main-div{
+  height: 100vh;
+  display: contents;
+  justify-content: center;
+  align-items: center;
+}
+
+.mat-mdc-dialog-actions {
+  justify-content: end;
+  padding-right: 25px;
+}
+
+.list-configuration {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  display: flow-root !important;
+  align-items: start;
+  justify-content: start;
+  height: 100%;
+  padding: 0;
+  margin: 5px;
+}
+
+.mat-mdc-standard-chip {
+  --mdc-chip-elevated-container-color: #53BAAC;
+  --mdc-chip-elevated-disabled-container-color: #53BAAC;
+  --mdc-chip-label-text-color: #F8F8FF;
+  --mdc-chip-disabled-label-text-color: #212121;
+  --mdc-chip-with-icon-icon-color: #212121;
+  --mdc-chip-with-icon-disabled-icon-color: #212121;
+  --mdc-chip-with-trailing-icon-disabled-trailing-icon-color: #212121;
+  --mdc-chip-with-trailing-icon-trailing-icon-color: #212121;
+  --mdc-chip-with-icon-selected-icon-color: #212121;
+}
