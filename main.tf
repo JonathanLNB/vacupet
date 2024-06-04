@@ -39,7 +39,7 @@ resource "digitalocean_project" "codigo_facilito_devops" {
   environment = "Development"
 
   resources = [
-    digitalocean_kubernetes_cluster.postgres.urn
+    digitalocean_kubernetes_cluster.vacupet.urn
   ]
 }
 
