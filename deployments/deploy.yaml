@@ -69,7 +69,7 @@ spec:
       volumes:
         - name: postgresdata
           persistentVolumeClaim:
-            claimName: vacupet-database-volume-postgresql
+            claimName: vacupet-database-claim-postgresql
   selector:
     matchLabels:
       app: vacupet
