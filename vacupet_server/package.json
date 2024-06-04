@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.ts",
   "scripts": {
-    "start": "tsc && node dist/app.js",
+    "start": "tsc && dotenvx run --env-file=.env.dev -- node dist/src/app.js",
     "dev": "dotenvx run --env-file=.env.dev -- nodemon - exec 'ts-node' src/index.ts",
     "build": "tsc"
   },
