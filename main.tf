@@ -110,7 +110,7 @@ resource "kubernetes_secret" "vacupet_secret" {
 
 resource "kubernetes_persistent_volume_claim" "vacupet_database_claim" {
   metadata {
-    name = "vacupet_database_claim-postgresql"
+    name = "vacupet-database-claim-postgresql"
   }
   spec {
     access_modes = ["ReadWriteMany"]
