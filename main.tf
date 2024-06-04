@@ -53,14 +53,14 @@ resource "digitalocean_vpc" "k8s" {
 }
 
 data "digitalocean_kubernetes_versions" "prefix" {
-  version_prefix = "1.21."
+  version_prefix = "1.29."
 }
 
 resource "digitalocean_kubernetes_cluster" "vacupet" {
   name         = "vacupet"
   region       = var.region
   auto_upgrade = true
-  version      = data.digitalocean_kubernetes_versions.prefix.latest_version
+  version      = data.digitalocean_kubernetes_versions.prefix.version_prefix
 
   vpc_uuid = digitalocean_vpc.k8s.id
 
