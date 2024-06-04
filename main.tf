@@ -134,9 +134,6 @@ resource "kubernetes_persistent_volume" "vacupet_database_volume" {
     }
     access_modes = ["ReadWriteMany"]
     persistent_volume_source {
-      vsphere_volume {
-        volume_path = "/data/postgresql"
-      }
       gce_persistent_disk {
         pd_name = "postgres-vacupet"
       }
