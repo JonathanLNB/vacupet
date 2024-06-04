@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: vacupet_server/service
+  name: vacupet-server-service
 spec:
   selector:
     app: vacupet_server
@@ -11,14 +11,14 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: vacupet_client/service
+  name: vacupet-client-service
 spec:
   selector:
     app: vacupet_client
   ports:
     - port: 4200
 ---
-apiVersion: apps/vacupet/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: vacupet-deployment
@@ -30,7 +30,7 @@ spec:
         app: vacupet
     spec:
       containers:
-        - name: vacupet_db_postgresql
+        - name: vacupet-db-postgresql
           image: 'postgres:14'
           imagePullPolicy: IfNotPresent
           ports:
@@ -54,13 +54,13 @@ spec:
           volumeMounts:
             - mountPath: /var/lib/postgresql/data
               name: postgresdata
-        - name: vacupet_server
+        - name: vacupet-server
           image: jonathanlnb/vacupet_server:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
           command: [ "/bin/sh", "-c", "npm start" ]
-        - name: vacupet_client
+        - name: vacupet-client
           image: jonathanlnb/vacupet_client:latest
           imagePullPolicy: Always
           ports:
@@ -69,7 +69,10 @@ spec:
       volumes:
         - name: postgresdata
           persistentVolumeClaim:
-            claimName: postgres-volume-claim
+            claimName: vacupet-database-volume-postgresql
+  selector:
+    matchLabels:
+      app: vacupet
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -87,7 +90,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: vacupet_server
+                name: vacupet-server
                 port:
                   number: 3000
 ---
@@ -107,6 +110,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: vacupet_client
+                name: vacupet-client
                 port:
                   number: 4200
