@@ -53,7 +53,7 @@ resource "digitalocean_vpc" "k8s" {
 }
 
 data "digitalocean_kubernetes_versions" "prefix" {
-  version_prefix = "1.28.2-do.0"
+  version_prefix = "1.30.1-do.0"
 }
 
 resource "digitalocean_kubernetes_cluster" "vacupet" {
@@ -136,6 +136,9 @@ resource "kubernetes_persistent_volume" "vacupet_database_volume" {
     persistent_volume_source {
       vsphere_volume {
         volume_path = "/data/postgresql"
+      }
+      gce_persistent_disk {
+        pd_name = "postgres-vacupet"
       }
     }
   }
