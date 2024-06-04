@@ -1,0 +1,129 @@
+mat-form-field {
+  width: 100%;
+}
+
+.row {
+  justify-content: start;
+  align-items: start !important;
+  display: table-cell !important;
+  width: 100%;
+  height: 100%;
+  margin: 15px;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  margin: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.row-element {
+  display: flex;
+  align-items: baseline; /* Ajusta la alineación vertical según sea necesario */
+}
+
+.md-fab-bottom-center {
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.md-fab-bottom-top {
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+}
+
+.images-bottom-center {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.list-configuration {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  display: flow-root;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.mat-mdc-standard-chip {
+  --mdc-chip-elevated-container-color: #53BAAC;
+  --mdc-chip-elevated-disabled-container-color: #53BAAC;
+  --mdc-chip-label-text-color: #F8F8FF;
+  --mdc-chip-disabled-label-text-color: #212121;
+  --mdc-chip-with-icon-icon-color: #212121;
+  --mdc-chip-with-icon-disabled-icon-color: #212121;
+  --mdc-chip-with-trailing-icon-disabled-trailing-icon-color: #212121;
+  --mdc-chip-with-trailing-icon-trailing-icon-color: #212121;
+  --mdc-chip-with-icon-selected-icon-color: #212121;
+}
+
+.cdk-global-overlay-wrapper {
+  display: flex;
+  position: absolute;
+  z-index: 1000;
+  overflow: auto;
+  pointer-events: auto;
+}
+
+.image-preview-container {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+}
+
+.preview {
+  max-width: 100px;
+  max-height: 100px;
+  margin-right: 10px;
+  object-fit: contain;
+}
+
+.gallery-panel {
+  --mdc-dialog-container-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.mdc-dialog__surface::after {
+  background-color: transparent !important;
+}
+
+$mars-path: 'M20.42,4.12a1,1,0,0,0-.54-.54,1,1,0,0,0-.38-.08h-4a1,1,0,0,0,0,2h1.59l-2.4,2.4A7,7,0,1,0,16.1,9.31l2.4-2.4V8.5a1,1,0,0,0,2,0v-4A1,1,0,0,0,20.42,4.12ZM14,17A5,5,0,1,1,14,10h0A5,5,0,0,1,14,17Z';
+$venus-path: 'M19,9a7,7,0,1,0-8,6.92V18H10a1,1,0,0,0,0,2h1v1a1,1,0,0,0,2,0V20h1a1,1,0,0,0,0-2H13V15.92A7,7,0,0,0,19,9Zm-7,5a5,5,0,1,1,5-5A5,5,0,0,1,12,14Z';
+
+::ng-deep .icon-slide-toggle .mdc-switch__icon {
+  transform: scale(0.8);
+
+  // Toggle off
+  &--off > path {
+    d: path($mars-path);
+  }
+
+  // Toggle on
+  &--on > path {
+    d: path($venus-path);
+  }
+}
+
+:host ::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+  background-color: #397CC0 ;
+}
+
+:host ::ng-deep  .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+  background-color: #397CC0 ;
+}

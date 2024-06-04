@@ -1,0 +1,109 @@
+<div class="main-div">
+  <mat-grid-list *ngIf="canDoActions" cols="6" rowHeight="100px">
+    <mat-grid-tile [colspan]="canCreate?5:6">
+      <mat-form-field>
+        <mat-label>Search</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile *ngIf="canFilter || canCreate" [colspan]="1">
+      <mat-grid-list *ngIf="canDoActions" [cols]="canFilter?2:1" rowHeight="100px" style="width: 100%">
+        <mat-grid-tile *ngIf="canCreate" [colspan]="1">
+          <button mat-fab extended color="primary" class="md-fab-bottom-right"
+                  (click)="openNewUpdateDialog(true, null)">
+            <mat-icon>add</mat-icon>
+            Add
+          </button>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 demo-table">
+      <ng-container [matColumnDef]="header.header" *ngFor="let header of tableHeaders">
+        <div *ngIf="header.notSortable">
+          <th mat-header-cell *matHeaderCellDef>
+            {{ header.header }}
+          </th>
+        </div>
+        <div *ngIf="!header.notSortable">
+          <th mat-header-cell *matHeaderCellDef [mat-sort-header]="header.elementKey">
+            {{ header.header }}
+          </th>
+        </div>
+        <td mat-cell *matCellDef="let element; let i = index;">
+          <div *ngIf="header.type==='date'">
+            {{ formatDateString(element[header.name]) | date:'dd/MM/yyyy' }}
+          </div>
+          <p *ngIf="header.type==='element' && header.elementKey && header.subtype === 'date'">
+            {{ formatDateString(getElement(element, header))| date:'dd/MM/yyyy' }}
+          </p>
+          <p *ngIf="header.type==='element' && header.elementKey && header.subtype === 'phone'">
+            {{ getPhone(getElement(element, header)) }}
+          </p>
+          <p
+            *ngIf="header.type==='element' && header.elementKey && header.subtype !== 'phone' && header.subtype !== 'date'">
+            {{ getElement(element, header) }}
+          </p>
+          <div *ngIf="header.type==='elements' && header.elementKey">
+            {{ getElements(element[header.name], header) }}
+          </div>
+          <div *ngIf="header.type==='money'">
+            <mat-chip cdkDrag>$ {{ element[header.name] }}</mat-chip>
+          </div>
+          <div *ngIf="header.type==='boolean'" style="text-align: start">
+            <mat-icon *ngIf="element[header.name]" color="success"><i class="fal  fa-circle-check fa-xs"></i></mat-icon>
+            <mat-icon *ngIf="!element[header.name]" color="warn"><i class="fal fa-circle-xmark fa-xs"></i></mat-icon>
+          </div>
+          <div *ngIf="header.type==='images' && element[header.name] && element[header.name].length > 0"
+               style="text-align: start">
+            <button mat-icon-button (click)="showImages(element[header.name])">
+              <mat-icon color="primary"><i class="fal  fa-image fa-xs"></i></mat-icon>
+            </button>
+          </div>
+          <div *ngIf="header.type==='status'" style="text-align: start">
+            <button *ngIf="element[header.name]" mat-icon-button (click)="updateStatus(element)">
+              <mat-icon color="primary"><i class="fal  fa-circle-check fa-xs"></i></mat-icon>
+            </button>
+            <button *ngIf="!element[header.name]" mat-icon-button (click)="updateStatus(element)">
+              <mat-icon color="warn"><i class="fal fa-circle-xmark fa-xs"></i></mat-icon>
+            </button>
+          </div>
+          <div *ngIf="header.type==='actions'">
+
+            <button matTooltipPosition="below" matTooltip="Update element" *ngIf="header.canEdit" mat-icon-button
+                    (click)=" openNewUpdateDialog(false, element);">
+              <mat-icon><i class="fal fa-pen-to-square fa-xs"></i></mat-icon>
+            </button>
+            <button matTooltipPosition="below" matTooltip="Delete element" *ngIf="header.canDelete" mat-icon-button
+                    (click)="deleteDialog(element)">
+              <mat-icon><i class="fal fa-trash fa-xs"></i></mat-icon>
+            </button>
+            <button matTooltipPosition="below"
+                    [matTooltip]="((element.Checklist.length > 0 && element.Checklist[0].Draft)? 'Continue with draft':'Take new '+(element.Status?'amendment':'vacupet'))"
+                    *ngIf="header.checklist" mat-icon-button
+                    (click)="openChecklist(element.Id)">
+              <mat-icon [color]="element.Checklist.length > 0 && element.Checklist[0].Draft? 'accent':undefined"><i
+                class="fal fa-list-check fa-xs"></i></mat-icon>
+            </button>
+          </div>
+          <div
+            *ngIf="header.type === 'phone'">
+            {{ getPhone(element[header.name]) }}
+          </div>
+          <div
+            *ngIf="header.type!=='date' &&  header.type!=='actions' && header.type!=='boolean' && header.type!=='status' && header.type!=='element' && header.type!=='elements' && header.type!=='images' && header.type!=='money' && header.type !== 'SSN/ITIN' && header.type !== 'phone'">
+            {{ element[header.name] }}
+          </div>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="stringHeaders"></tr>
+      <tr mat-row (click)="sendData(row)" *matRowDef="let row; columns: stringHeaders;"></tr>
+    </table>
+    <mat-paginator
+      [length]="data.length"
+      [pageSizeOptions]="pages"
+      showFirstLastButtons>
+    </mat-paginator>
+  </div>
+</div>

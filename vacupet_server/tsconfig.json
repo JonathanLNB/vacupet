@@ -12,6 +12,7 @@
     "emitDecoratorMetadata": true,
     "strictPropertyInitialization": false,
     "resolveJsonModule": true,
+    "skipLibCheck": true,
     "rootDirs": [
       "/src/**/*"
     ],
@@ -23,6 +24,7 @@
     "ES5"
   ],
   "include": [
+    "src/**/*",
     "./**/*.json"
   ],
   "exclude": [

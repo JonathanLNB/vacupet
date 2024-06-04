@@ -1,0 +1,3 @@
+<h1>Alergias</h1>
+<app-data-table [canCreate]="true" [data]="data" [tableHeaders]="getTableHeaders(tableHeaders)" (element)="getAllergy($event)" (deleteF)="deleteAllergy($event)"
+                (newEdit)="createUpdateAllergy($event)"></app-data-table>

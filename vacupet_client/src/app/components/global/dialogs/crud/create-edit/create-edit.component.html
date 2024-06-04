@@ -1,0 +1,77 @@
+<div class="main-div">
+  <h1 mat-dialog-title>{{ title }}</h1>
+  <div mat-dialog-content>
+    <mat-grid-list [cols]="breakpoint" rowHeight="5rem" (window:resize)="onResize($event)">
+      <mat-grid-tile *ngFor="let header of lowerHeaders;let indice=index">
+        <div class="list-configuration">
+          <mat-form-field *ngIf="headers[indice][1].type!=='boolean'">
+            <mat-label>{{ headers[indice][0] }}</mat-label>
+            <input
+              *ngIf="headers[indice][1].type!=='password' && headers[indice][1].type!=='collection' && headers[indice][1].type!=='textarea'"
+              matInput
+              [readonly]="create?headers[indice][1].readOnlyCreate:headers[indice][1].readOnlyUpdate"
+              [placeholder]="headers[indice][0]"
+              [type]="headers[indice][1].type"
+              [pattern]="headers[indice][1].type === 'date' ? '\d{2}/\d{2}/\d{4}': ''"
+              [name]="headers[indice][1].name"
+              [required]="create?headers[indice][1].requiredCreate:headers[indice][1].requiredUpdate"
+              [minLength]="headers[indice][1].minLength??2"
+              [maxLength]="headers[indice][1].maxLength??50"
+              [(ngModel)]="headers[indice][1].value"
+              [mask]="headers[indice][1].type==='phone'? '(000) 000-0000' : null"
+              (keydown)="headers[indice][1].type==='phone'?validateOnlyNumber($event):null">
+            <input *ngIf="headers[indice][1].type==='password'" matInput [placeholder]="headers[indice][0]"
+                   [readonly]="create?headers[indice][1].readOnlyCreate:headers[indice][1].readOnlyUpdate"
+                   [type]="headers[indice][1].hide ? 'password' : 'text'"
+                   [name]="headers[indice][1].name"
+                   [required]="create?headers[indice][1].requiredCreate:headers[indice][1].requiredUpdate"
+                   [(ngModel)]="headers[indice][1].value">
+            <textarea *ngIf="headers[indice][1].type==='textarea'" matInput
+                      type="text" [placeholder]="headers[indice][0]"
+                      [readonly]="create?headers[indice][1].readOnlyCreate:headers[indice][1].readOnlyUpdate"
+                      [name]="headers[indice][1].name"
+                      [required]="create?headers[indice][1].requiredCreate:headers[indice][1].requiredUpdate"
+                      [(ngModel)]="headers[indice][1].value"></textarea>
+            <button *ngIf="headers[indice][1].type==='password'" type="button" mat-icon-button matSuffix
+                    (click)="headers[indice][1].hide = !headers[indice][1].hide"
+                    [attr.aria-label]="'Ocultar contraseña'"
+                    [attr.aria-pressed]="headers[indice][1].hide">
+              <mat-icon>{{ headers[indice][1].hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+            <input *ngIf="headers[indice][1].type==='collection'" type="text" matInput
+                   [readonly]="create?headers[indice][1].readOnlyCreate:headers[indice][1].readOnlyUpdate"
+                   [formControl]="headers[indice][1].control" [matAutocomplete]="auto"
+                   [required]="create?headers[indice][1].requiredCreate:headers[indice][1].requiredUpdate">
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="headers[indice][1].displayFn">
+              <mat-option *ngFor="let option of headers[indice][1].filterOptions | async" [value]="option">
+                {{ option[headers[indice][1].name] }}
+              </mat-option>
+            </mat-autocomplete>
+            <mat-error>
+              Please, enter {{ headers[indice][0].toLowerCase() }}
+            </mat-error>
+          </mat-form-field>
+          <button *ngIf="headers[indice][1].type==='barcode'" mat-icon-button matTooltipPosition="right"
+                  matTooltip="Generar código de barras"
+                  (click)="generateBarcode(headers[indice][1].value)">
+            <mat-icon><i class="fal fa-barcode fa-xs"></i></mat-icon>
+          </button>
+          <div *ngIf="headers[indice][1].type==='boolean'" style="margin-left: 20px">
+            <mat-label ngClass="labelBeforeSlide">{{ headers[indice][0] }}</mat-label>
+            <br>
+            <mat-slide-toggle *ngIf="headers[indice][1].type==='boolean'" color="primary"
+                              [checked]="headers[indice][1].value"
+                              [(ngModel)]="headers[indice][1].value"
+                              [name]="headers[indice][1].name"></mat-slide-toggle>
+          </div>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="closeDialog()">Close</button>
+    <button mat-raised-button color="accent" [disabled]="disableButton()"
+            (click)="onFinish()">{{ create ? 'Create' : 'Update' }}
+    </button>
+  </div>
+</div>

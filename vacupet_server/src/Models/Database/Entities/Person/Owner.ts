@@ -1,10 +1,16 @@
-import {Column, Entity} from "typeorm";
-import {Person} from "./Person";
+import {Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn} from "typeorm";
+import {Pet} from "../Pet";
+import {User} from "./User";
 
 @Entity()
-export class Owner extends Person {
+export class Owner {
+    @PrimaryGeneratedColumn("uuid")
+    Id: string
     @Column()
     Address: string
-    @Column()
-    FirebaseId: string
+    @OneToOne(() => User, {cascade: true})
+    @JoinColumn()
+    User: User
+    @OneToMany(() => Pet, (pet) => pet.Owner, {cascade: true})
+    Pets: Pet[]
 }

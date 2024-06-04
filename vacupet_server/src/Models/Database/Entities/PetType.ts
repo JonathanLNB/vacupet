@@ -1,4 +1,5 @@
-import {Entity, Column, PrimaryGeneratedColumn} from "typeorm"
+import {Entity, Column, PrimaryGeneratedColumn, OneToMany} from "typeorm"
+import {Pet} from "./Pet";
 
 @Entity()
 export class PetType {
@@ -6,4 +7,6 @@ export class PetType {
     Id: string
     @Column()
     Name: string
+    @OneToMany(() => Pet, (pet) => pet.PetType, {cascade: true})
+    Pets: Pet[]
 }

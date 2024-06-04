@@ -1,0 +1,123 @@
+<div class="main-div">
+  <mat-grid-list [cols]="breakpoint" rowHeight="8rem" (window:resize)="onResize($event)" style="margin-top: 10px">
+    <mat-grid-tile>
+      <div class="row">
+        <mat-form-field>
+          <mat-label>Nombre</mat-label>
+          <input
+            matInput
+            placeholder="Nombre"
+            type="text"
+            name="Name"
+            required="true"
+            [(ngModel)]="data.Name">
+          <mat-error>
+            Por favor, ingresa el nombre de la mascota
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="row">
+        <mat-form-field>
+          <mat-label>Tipo de Mascota</mat-label>
+          <mat-select [(ngModel)]="data.PetType" [required]="true">
+            <mat-option *ngFor="let petType of petTypesOptions" [value]="petType">
+              {{ petType["Name"] }}
+            </mat-option>
+          </mat-select>
+          <mat-error>
+            Por favor, elige el tipo de mascota
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="row">
+        <mat-form-field>
+          <mat-label>Raza</mat-label>
+          <input
+            matInput
+            placeholder="Raza"
+            type="text"
+            name="Raza"
+            required="true"
+            [(ngModel)]="data.Race">
+          <mat-error>
+            Por favor, ingresa el nombre de la mascota
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="row">
+        <mat-form-field>
+          <mat-label>Fecha de nacimiento</mat-label>
+          <input
+            matInput
+            placeholder="Fecha de naciemiento"
+            type="date"
+            required="true"
+            [(ngModel)]="data.DateOfBirthS">
+          <mat-error>
+            Por favor, ingresa la fecha de nacimiento de la mascota
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="container" style="padding-left:20px">
+        <div class="col">
+          <div class="row">
+            <mat-label>Género</mat-label>
+            <br>
+            <mat-slide-toggle class="icon-slide-toggle" [checked]="data.Gender" [(ngModel)]="data.Gender"></mat-slide-toggle>
+          </div>
+        </div>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="container">
+        <div class="row-element">
+          <mat-form-field>
+            <input type="text" matInput
+                   placeholder="Alergias"
+                   [formControl]="allergiesControl" [matAutocomplete]="allergiesAuto">
+            <mat-autocomplete #allergiesAuto="matAutocomplete" [displayWith]="displayAllergy">
+              <mat-option *ngFor="let option of filteredAllergies | async" [value]="option">
+                {{ option["Name"] }}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+          <button mat-fab extended color="primary" class="md-fab-bottom-right" (click)="addAllergy()">
+            <mat-icon>add</mat-icon>
+            Add
+          </button>
+        </div>
+        <div class="image-preview-container">
+          <mat-chip-set
+            style="padding-left: 13px"
+            class="chips"
+            cdkDropList
+            cdkDropListOrientation="horizontal">
+            <mat-chip *ngFor="let option of data.Allergies; let indice = index" (removed)="removeAllergy(indice)"
+                      cdkDrag>{{ option.Name }}
+              <button matChipRemove aria-label="'Remover ' + keyword">
+                <mat-icon style="color: white">cancel</mat-icon>
+              </button>
+            </mat-chip>
+          </mat-chip-set>
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <div class="md-fab-bottom-center">
+    <button mat-fab extended color="warn" (click)="removePet()">
+      <mat-icon>remove</mat-icon>
+      Remover mascota
+    </button>
+  </div>
+  <div style="margin: 20px">
+    <mat-divider style="padding-bottom: 10px"></mat-divider>
+  </div>
+</div>

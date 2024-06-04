@@ -6,10 +6,12 @@ import {LoggerRequest} from "../Tools/Logger/LoggerRequest";
 import {sendResponse} from "../Tools/Logger/SendResponse";
 import {GenericResponse} from "../Models/Interfaces/GenericResponse";
 import {ISetting} from "../Models/Database/Interfaces/ISetting";
+import {Setting} from "../Models/Database/Entities/Setting";
+import {decryptENV} from "../Tools/Utils";
 
-export function GetSettingRoutes(dataSource: DataSource): Router {
+export function GetSettingsRoutes(dataSource: DataSource): Router {
     const loggerCfg = {
-        ...JSON.parse(process.env.LOGGER),
+        ...JSON.parse(decryptENV(process.env.LOGGER)),
         operationId: '/setting'
     }
 
@@ -22,12 +24,13 @@ export function GetSettingRoutes(dataSource: DataSource): Router {
         }
     })
     const router = express.Router();
-    const settingController = new SettingsController(dataSource);
+    const settingController = new SettingsController(logger, dataSource);
+
     router.post('/', [loggerOptions, async (req: Request, res: Response, next: NextFunction): Promise<void> => {
         let gResponse: GenericResponse;
-        let setting = req.body as ISetting;
+        let setting = req.body as Setting;
         try {
-            let settingResponse = await settingController.createSetting(setting);
+            let settingResponse = await settingController.createUpdateSetting(setting);
             gResponse = {
                 Success: true,
                 Message: "Success adding setting",
@@ -70,7 +73,7 @@ export function GetSettingRoutes(dataSource: DataSource): Router {
         let gResponse: GenericResponse;
         let setting = req.body as ISetting;
         try {
-            let settingResponse = await settingController.updateSetting(setting);
+            let settingResponse = await settingController.createUpdateSetting(setting);
             gResponse = {
                 Success: true,
                 Message: "Success updating setting",

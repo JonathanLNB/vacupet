@@ -1,0 +1,102 @@
+<div class="main-div">
+  <h1 mat-dialog-title>{{ title }}</h1>
+  <div mat-dialog-content>
+    <mat-grid-list [cols]="breakpoint" rowHeight="6rem" (window:resize)="onResize($event)">
+      <mat-grid-tile *ngFor="let header of headers;let indice=index">
+        <div class="list-configuration">
+          <h4>{{ header.header }}</h4>
+          <p *ngIf="header.type==='date'">
+            {{ formatDateString(element[header.name]) | date:'dd/MM/yyyy' }}
+          </p>
+          <p *ngIf="header.type==='element' && header.elementKey && header.subtype === 'date'">
+            {{ formatDateString(getElement(element, header))| date:'dd/MM/yyyy' }}
+          </p>
+          <p *ngIf="header.type==='element' && header.elementKey && header.subtype === 'phone'">
+            {{ getPhone(getElement(element, header)) }}
+          </p>
+          <p
+            *ngIf="header.type==='element' && header.elementKey && header.subtype !== 'phone' && header.subtype !== 'date'">
+            {{ getElement(element, header) }}
+          </p>
+          <mat-chip-set
+            style="padding-left: 13px"
+            class="chips"
+            cdkDropList
+            *ngIf="header.type==='elements' && header.elementKey"
+            cdkDropListOrientation="horizontal">
+            <mat-chip *ngFor="let chip of element[header.name]"
+                      cdkDrag>{{ chip.Name }}
+            </mat-chip>
+          </mat-chip-set>
+          <div *ngIf="header.type==='boolean'">
+            <mat-icon *ngIf="element[header.name]" color="success"><i class="fal  fa-circle-check fa-xs"></i></mat-icon>
+            <mat-icon *ngIf="!element[header.name]" color="warn"><i class="fal fa-circle-xmark fa-xs"></i></mat-icon>
+          </div>
+          <p
+            *ngIf="header.type!=='date' &&  header.type!=='actions' && header.type!=='boolean' && header.type!=='element' && header.type!=='elements'">
+            {{ element[header.name] }}
+          </p>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <div *ngIf="element.Pets && element.Pets.length>0">
+      <h3>Mascotas</h3>
+      <mat-grid-list *ngFor="let pet of element.Pets" [cols]="breakpoint" rowHeight="6rem"
+                     (window:resize)="onResize($event)">
+        <mat-grid-tile>
+          <div class="list-configuration">
+            <h4>Nombre</h4>
+            <p>{{ pet?.Name }}</p>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile style="margin-top: 10px">
+          <div class="list-configuration">
+            <h4>Tipo de Mascota</h4>
+            <p>{{ pet.PetType?.Name }}</p>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile
+          style="margin-top: 10px">
+          <div class="list-configuration">
+            <h4>Raza</h4>
+            <p>{{ pet.Race }}</p>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile
+          style="margin-top: 10px">
+          <div class="list-configuration">
+            <h4>Género</h4>
+            <p>{{ pet.Gender ? "Hembra" : "Macho" }}</p>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile
+          style="margin-top: 10px">
+          <div class="list-configuration">
+            <h4>Fecha de nacimiento</h4>
+            <p>{{ formatDateString(formatDate(pet.DateOfBirth)) | date:'dd/MM/yyyy' }}</p>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile
+          *ngIf="pet.Allergies && pet.Allergies.length > 0"
+          style="margin-top: 10px">
+          <div class="list-configuration">
+            <h4>Alergias</h4>
+            <mat-chip-set
+              style="padding-left: 13px"
+              class="chips"
+              cdkDropList
+              cdkDropListOrientation="horizontal">
+              <mat-chip *ngFor="let allergy of pet.Allergies"
+                        cdkDrag>{{ allergy.Name }}
+              </mat-chip>
+            </mat-chip-set>
+          </div>
+        </mat-grid-tile>
+        <mat-divider></mat-divider>
+      </mat-grid-list>
+    </div>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="closeDialog()">Close</button>
+  </div>
+</div>

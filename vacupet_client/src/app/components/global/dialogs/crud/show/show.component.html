@@ -1,0 +1,37 @@
+<div class="main-div">
+  <h1 mat-dialog-title>{{title}}</h1>
+  <div mat-dialog-content>
+    <mat-grid-list [cols]="breakpoint" rowHeight="6rem" (window:resize)="onResize($event)">
+      <mat-grid-tile *ngFor="let header of headers;let indice=index">
+        <div class="list-configuration">
+          <h3>{{header.header}}</h3>
+          <p *ngIf="header.type==='date'">
+            {{formatDateString(element[header.name]) | date:'dd/MM/yyyy'}}
+          </p>
+          <p *ngIf="header.type==='element' && header.elementKey">
+            {{ getElement(element, header)}}
+          </p>
+          <div *ngIf="header.type==='boolean'">
+            <mat-icon *ngIf="element[header.name]" color="success"><i class="fal  fa-circle-check fa-xs"></i></mat-icon>
+            <mat-icon *ngIf="!element[header.name]" color="warn"><i class="fal fa-circle-xmark fa-xs"></i></mat-icon>
+          </div>
+          <p
+            *ngIf="header.type!=='date' &&  header.type!=='actions' && header.type!=='boolean' && header.type!=='element' && header.type !== 'phone' && header.type !== 'SSN/ITIN'">
+            {{element[header.name]}}
+          </p>
+          <p
+            *ngIf="header.type === 'phone'">
+            {{ getPhone(element[header.name]) }}
+          </p>
+          <p
+            *ngIf="header.type === 'SSN/ITIN'">
+            {{ getSSNITIN(element[header.name]) }}
+          </p>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="closeDialog()">Close</button>
+  </div>
+</div>

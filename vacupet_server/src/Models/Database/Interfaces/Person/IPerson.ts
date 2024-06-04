@@ -3,7 +3,7 @@ export interface IPerson {
     Firstname: string;
     Middlename: string;
     Lastname: string;
-    SSN_ITIN: string;
-    Occupation: string;
+    Email: string;
+    PhoneNumber: string;
     DateOfBirth: Date;
 }

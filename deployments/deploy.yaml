@@ -1,0 +1,108 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: vacupet_server/service
+spec:
+  selector:
+    app: vacupet_server
+  ports:
+    - port: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: vacupet_client/service
+spec:
+  selector:
+    app: vacupet_client
+  ports:
+    - port: 4200
+---
+apiVersion: apps/vacupet/v1
+kind: Deployment
+metadata:
+  name: vacupet-deployment
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: vacupet
+    spec:
+      containers:
+        - name: vacupet_db_postgresql
+          image: 'postgres:14'
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: vacupet-secret
+                  key: db_user
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: vacupet-secret
+                  key: db_ps
+            - name: POSTGRES_DB
+              valueFrom:
+                secretKeyRef:
+                  name: vacupet-secret
+                  key: db_name
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: postgresdata
+        - name: vacupet_server
+          image: jonathanlnb/vacupet_server:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+          command: [ "/bin/sh", "-c", "npm start" ]
+        - name: vacupet_client
+          image: jonathanlnb/vacupet_client:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 4200
+          command: [ "/bin/sh", "-c", "ng serve --host 0.0.0.0" ]
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: vacupet-server-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx-example
+  rules:
+    - host: k8.vacupetservercodigofacilito.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: vacupet_server
+                port:
+                  number: 3000
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: vacupet-client-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx-example
+  rules:
+    - host: k8.vacupetclientcodigofacilito.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: vacupet_client
+                port:
+                  number: 4200
