@@ -66,6 +66,10 @@ spec:
           ports:
             - containerPort: 4200
           command: [ "/bin/sh", "-c", "ng serve --host 0.0.0.0" ]
+      volumes:
+        - name: postgresdata
+          persistentVolumeClaim:
+            claimName: postgres-volume-claim
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress

@@ -108,34 +108,44 @@ resource "kubernetes_secret" "vacupet_secret" {
   type = "Opaque"
 }
 
-resource "kubernetes_persistent_volume_claim" "vacupet_database_claim" {
+resource "kubernetes_persistent_volume" "vacupet_database_pv" {
   metadata {
-    name = "vacupet-database-claim-postgresql"
+    name = "vacupet-database-volume-postgresql"
+    labels = {
+      type = "local"
+      app  = "vacupet_db_postgresql"
+    }
   }
+
   spec {
+    storage_class_name = "manual"
+    capacity = {
+      storage = "10Gi"
+    }
     access_modes = ["ReadWriteMany"]
-    resources {
-      requests = {
-        storage = "1Gi"
+
+    persistent_volume_source {
+      host_path {
+        path = "/data/postgresql"
       }
     }
-    volume_name = "${kubernetes_persistent_volume.vacupet_database_volume.metadata.0.name}"
   }
 }
 
-
-resource "kubernetes_persistent_volume" "vacupet_database_volume" {
+resource "kubernetes_persistent_volume_claim" "vacupet_database_pvc" {
   metadata {
-    name = "vacupet-database-volume-postgresql"
-  }
-  spec {
-    capacity = {
-      storage = "2Gi"
+    name = "vacupet-database-claim-postgresql"
+    labels = {
+      app = "vacupet_db_postgresql"
     }
-    access_modes = ["ReadWriteMany"]
-    persistent_volume_source {
-      gce_persistent_disk {
-        pd_name = "postgres-vacupet"
+  }
+
+  spec {
+    storage_class_name = "manual"
+    access_modes        = ["ReadWriteMany"]
+    resources {
+      requests = {
+        storage = "10Gi"
       }
     }
   }
