@@ -136,7 +136,7 @@ resource "kubernetes_persistent_volume_claim" "vacupet_database_pvc" {
   metadata {
     name = "vacupet-database-claim-postgresql"
     labels = {
-      app = "vacupet_db_postgresql"
+      app = "vacupet-db-postgresql"
     }
   }
 
